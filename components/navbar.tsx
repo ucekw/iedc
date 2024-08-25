@@ -12,6 +12,7 @@ function Navbar() {
         </div>
         <div className='flex gap-8 items-center justify-center'>
             <a href="">Home</a>
+            <a href="">Events</a>
             <a href="">Team</a>
             <a href="">About Us</a>
             <button className='px-5 py-2 bg-black text-white rounded-3xl font-[600]'>

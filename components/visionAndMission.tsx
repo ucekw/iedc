@@ -7,10 +7,10 @@ const font = Montserrat({ subsets: ["latin"] });
 function VisionAndMission() {
   return (
     <div
-      className={` ${font.className} bg-gradient-to-r from-[#F4B518] to-[#F2B318] flex flex-col`}
+      className={` ${font.className} h-full bg-gradient-to-r from-[#F4B518] to-[#F2B318] flex flex-col`}
     >
       <div className="flex flex-col items-center w-full">
-        <div className="bg-black w-full h-screen rounded-t-[100px] flex flex-col items-center gap-44">
+        <div className="bg-black w-full  rounded-t-[100px] flex flex-col items-center gap-44">
           <div className="flex md:flex-row flex-col">
             <div className="flex flex-col items-center px-[5rem] lg:px-[15.4rem] md:w-[50%] mt-36">
               <Image

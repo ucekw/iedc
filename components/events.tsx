@@ -6,7 +6,7 @@ import Slider from "react-slick";
 const Event = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const settings = {
+  const settings: SliderSettings = {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -14,7 +14,7 @@ const Event = () => {
     autoplay: true,
     arrows: false,
 
-    beforeChange: (current, next) => setCurrentSlide(next),
+    beforeChange: (current: number, next: number) => setCurrentSlide(next),
     responsive: [
       {
         breakpoint: 1024,
@@ -30,6 +30,28 @@ const Event = () => {
       },
     ],
   };
+
+  interface Event {
+    title: string;
+    date: string;
+    image: string;
+  }
+
+  interface SliderSettings {
+    infinite: boolean;
+    speed: number;
+    slidesToShow: number;
+    slidesToScroll: number;
+    autoplay: boolean;
+    arrows: boolean;
+    beforeChange: (current: number, next: number) => void;
+    responsive: {
+      breakpoint: number;
+      settings: {
+        slidesToShow: number;
+      };
+    }[];
+  }
 
   const events = [
     {

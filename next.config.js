@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
+const nextConfig = { output: "export",images: { unoptimized: true }}
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === 'production';
 
-const nextConfig = {
-  images: { unoptimized: true },
-  assetPrefix: isProd ? "/website/" : "",
-  images: {
-    loader: "imgix",
-    path: isProd ? "https://github.com/Legacy-IEDC/website" : "",
-  },
+module.exports = {
+  
 };
 
 
-module.exports = nextConfig;
+module.exports = nextConfig

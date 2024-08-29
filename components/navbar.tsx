@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Poppins } from "next/font/google";
-
+import logo from "../public/logo.svg";
 const font = Poppins({ subsets: ["latin"], weight: ["500"] });
 
 function Navbar({ page }: { page: string }) {
@@ -16,7 +16,7 @@ function Navbar({ page }: { page: string }) {
         <Image
           className="w-16 h-16 md:w-24 md:h-24"
           alt="logo"
-          src="/logo.svg"
+          src={logo}
           width={200}
           height={200}
         />

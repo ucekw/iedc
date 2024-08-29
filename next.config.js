@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 const nextConfig = {
   images: {
     unoptimized: true,
@@ -9,7 +10,7 @@ const nextConfig = {
         port: "",
       },
     ],
-    domains: ["localhost", "*.googleusercontent.com", "drive.google.com","image.domains"],
+    domains: ["localhost", "*.googleusercontent.com", "drive.google.com", "lh3.googleusercontent.com"],
   },
   reactStrictMode: false,
 };

@@ -29,9 +29,9 @@ export function getTeamData(){
   return getData(url)
 }
 
-
-export function getImgLink(id: string) {
+export function getImgLink(link: string) {
     return (
-      'https://drive.google.com/uc?export=download&id=' + id
-   );
+      "https://drive.google.com/uc?export=download&id=" +
+      link.replace("https://drive.google.com/open?id=", "")
+    );
   }

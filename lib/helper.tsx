@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 export function resolveMediaIcon(link: string) {
   if (link.includes("linktr.ee")) {
-    return <SiLinktree className="md:size-7 size-4" />;
+    return <SiLinktree className="md:size-10 size-10" />;
   } else if (link.includes("twitter.com")) {
     return <FaXTwitter className="md:size-7 size-4" />;
   } else if (link.includes("instagram.com")) {

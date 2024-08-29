@@ -96,7 +96,7 @@ function Page() {
                 </h1>
                 <span className="w-[100%] h-[1px] bg-[#FBBA1A]  "></span>
               </div>
-              <div className="grid grid-cols-2 md:w-[80%] w-full md:gap-52 gap-4 justify-items-center">
+              <div className="grid grid-cols-2 md:w-[80%] w-full md:gap-52 gap-4 px-5 justify-items-center">
                 {teamData.map((member, index) => (
                   <>
                     {member[2] !== item.role ? null : <MemberCard data={member} key={index}/>}

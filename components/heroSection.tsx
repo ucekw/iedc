@@ -6,19 +6,19 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import { Skeleton } from "./ui/skeleton";
 
-import image1 from "../public/images/landing/1.jpg";
-import image2 from "../public/images/landing/2.jpg";
-import image3 from "../public/images/landing/3.jpg";
-import image4 from "../public/images/landing/4.jpg";
-import image5 from "../public/images/landing/5.jpg";
-import image6 from "../public/images/landing/6.jpg";
-import image7 from "../public/images/landing/7.jpg";
-import image8 from "../public/images/landing/8.jpg";
-import image9 from "../public/images/landing/9.jpg";
-import image10 from "../public/images/landing/10.jpg";
-import image11 from "../public/images/landing/11.jpg";
-import image12 from "../public/images/landing/12.jpg";
-import image13 from "../public/images/landing/13.jpg";
+import image1 from "../public/images/1.jpg";
+import image2 from "../public/images/2.jpg";
+import image3 from "../public/images/3.jpg";
+import image4 from "../public/images/4.jpg";
+import image5 from "../public/images/5.jpg";
+import image6 from "../public/images/6.jpg";
+import image7 from "../public/images/7.jpg";
+import image8 from "../public/images/8.jpg";
+import image9 from "../public/images/9.jpg";
+import image10 from "../public/images/10.jpg";
+import image11 from "../public/images/11.jpg";
+import image12 from "../public/images/12.jpg";
+import image13 from "../public/images/13.jpg";
 
 const font = Montserrat({ subsets: ["latin"] });
 

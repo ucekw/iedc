@@ -86,7 +86,7 @@ function OurSaga() {
             </div>
           </div>
         </div>
-        <span className="w-[50%] h-[1px] bg-[#FBBA1A] mt-20"></span>
+        <span className="w-[50%] h-[1px] bg-[#FBBA1A] md:mt-20 "></span>
       </div>
     </div>
   );

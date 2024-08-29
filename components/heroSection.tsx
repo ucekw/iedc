@@ -6,6 +6,20 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import { Skeleton } from "./ui/skeleton";
 
+import image1 from "../public/images/landing/1.jpg";
+import image2 from "../public/images/landing/2.jpg";
+import image3 from "../public/images/landing/3.jpg";
+import image4 from "../public/images/landing/4.jpg";
+import image5 from "../public/images/landing/5.jpg";
+import image6 from "../public/images/landing/6.jpg";
+import image7 from "../public/images/landing/7.jpg";
+import image8 from "../public/images/landing/8.jpg";
+import image9 from "../public/images/landing/9.jpg";
+import image10 from "../public/images/landing/10.jpg";
+import image11 from "../public/images/landing/11.jpg";
+import image12 from "../public/images/landing/12.jpg";
+import image13 from "../public/images/landing/13.jpg";
+
 const font = Montserrat({ subsets: ["latin"] });
 
 function HeroSection({ onImagesLoaded }: any) {
@@ -32,7 +46,7 @@ function HeroSection({ onImagesLoaded }: any) {
           <div className="md:hidden flex flex-col gap-2 -mt-32 ">
             <div className="flex justify-center">
               <Image
-                src={"/images/landing/2.JPG"}
+                src={image1}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -45,7 +59,7 @@ function HeroSection({ onImagesLoaded }: any) {
             </div>
             <div className="flex gap-2">
               <Image
-                src={"/images/landing/9.JPG"}
+                src={image9}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -56,7 +70,7 @@ function HeroSection({ onImagesLoaded }: any) {
                 className={`prevent-select w-32 h-[5rem] object-cover rounded-lg`}
               />
               <Image
-                src={"/images/landing/5.JPG"}
+                src={image5}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -85,7 +99,7 @@ function HeroSection({ onImagesLoaded }: any) {
           <div className="md:hidden flex flex-col gap-2">
             <div className="flex gap-2">
               <Image
-                src={"/images/landing/10.JPG"}
+                src={image10}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -96,7 +110,7 @@ function HeroSection({ onImagesLoaded }: any) {
                 className={`prevent-select w-32 h-[5rem] object-cover rounded-lg`}
               />
               <Image
-                src={"/images/landing/13.JPG"}
+                src={image13}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -109,7 +123,7 @@ function HeroSection({ onImagesLoaded }: any) {
             </div>
             <div className="flex justify-center">
               <Image
-                src={"/images/landing/12.JPG"}
+                src={image12}
                 width={1}
                 height={1}
                 alt="mision-logo"
@@ -125,7 +139,7 @@ function HeroSection({ onImagesLoaded }: any) {
         <div className="md:flex hidden gap-3 h-[50rem] md:w-[50%] justify-center items-center mt-8 ">
           <div className="flex flex-col h-[100%] gap-3 justify-center">
             <Image
-              src={"/images/landing/1.JPG"}
+              src={image1}
               width={1}
               height={1}
               alt="mision-logo"
@@ -136,7 +150,7 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/2.JPG"}
+              src={image2}
               width={1}
               height={1}
               alt="mision-logo"
@@ -147,7 +161,7 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/3.JPG"}
+              src={image3}
               width={1}
               height={1}
               alt="mision-logo"
@@ -158,64 +172,7 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/4.JPG"}
-              width={1}
-              height={1}
-              alt="mision-logo"
-              blurDataURL="data:..."
-              placeholder="blur"
-              quality={10}
-              onLoad={handleImageLoad}
-              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
-            />
-          </div>
-          <div className="flex flex-col h-[90%] gap-3 justify-center">
-            <Image
-              src={"/images/landing/5.JPG"}
-              width={1}
-              height={1}
-              alt="mision-logo"
-              blurDataURL="data:..."
-              placeholder="blur"
-              quality={10}
-              onLoad={handleImageLoad}
-              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
-            />
-            <Image
-              src={"/images/landing/6.JPG"}
-              width={1}
-              height={1}
-              alt="mision-logo"
-              blurDataURL="data:..."
-              placeholder="blur"
-              quality={10}
-              onLoad={handleImageLoad}
-              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
-            />
-            <Image
-              src={"/images/landing/7.JPG"}
-              width={1}
-              height={1}
-              alt="mision-logo"
-              blurDataURL="data:..."
-              placeholder="blur"
-              quality={10}
-              onLoad={handleImageLoad}
-              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
-            />
-            <Image
-              src={"/images/landing/8.JPG"}
-              width={1}
-              height={1}
-              alt="mision-logo"
-              blurDataURL="data:..."
-              placeholder="blur"
-              quality={10}
-              onLoad={handleImageLoad}
-              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
-            />
-            <Image
-              src={"/images/landing/9.JPG"}
+              src={image4}
               width={1}
               height={1}
               alt="mision-logo"
@@ -228,7 +185,7 @@ function HeroSection({ onImagesLoaded }: any) {
           </div>
           <div className="flex flex-col h-[90%] gap-3 justify-center">
             <Image
-              src={"/images/landing/10.JPG"}
+              src={image5}
               width={1}
               height={1}
               alt="mision-logo"
@@ -239,7 +196,7 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/11.JPG"}
+              src={image6}
               width={1}
               height={1}
               alt="mision-logo"
@@ -250,7 +207,7 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/12.JPG"}
+              src={image7}
               width={1}
               height={1}
               alt="mision-logo"
@@ -261,7 +218,64 @@ function HeroSection({ onImagesLoaded }: any) {
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
-              src={"/images/landing/13.JPG"}
+              src={image8}
+              width={1}
+              height={1}
+              alt="mision-logo"
+              blurDataURL="data:..."
+              placeholder="blur"
+              quality={10}
+              onLoad={handleImageLoad}
+              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
+            />
+            <Image
+              src={image9}
+              width={1}
+              height={1}
+              alt="mision-logo"
+              blurDataURL="data:..."
+              placeholder="blur"
+              quality={10}
+              onLoad={handleImageLoad}
+              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
+            />
+          </div>
+          <div className="flex flex-col h-[90%] gap-3 justify-center">
+            <Image
+              src={image10}
+              width={1}
+              height={1}
+              alt="mision-logo"
+              blurDataURL="data:..."
+              placeholder="blur"
+              quality={10}
+              onLoad={handleImageLoad}
+              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
+            />
+            <Image
+              src={image11}
+              width={1}
+              height={1}
+              alt="mision-logo"
+              blurDataURL="data:..."
+              placeholder="blur"
+              quality={10}
+              onLoad={handleImageLoad}
+              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
+            />
+            <Image
+              src={image12}
+              width={1}
+              height={1}
+              alt="mision-logo"
+              blurDataURL="data:..."
+              placeholder="blur"
+              quality={10}
+              onLoad={handleImageLoad}
+              className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
+            />
+            <Image
+              src={image13}
               width={1}
               height={1}
               alt="mision-logo"

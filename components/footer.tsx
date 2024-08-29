@@ -5,6 +5,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { Montserrat } from "next/font/google";
+import logo from "../public/logo.svg";
 const font = Montserrat({ subsets: ["latin"] });
 
 function Footer() {
@@ -16,7 +17,7 @@ function Footer() {
         <div className="flex md:flex-row flex-col">
           <div className=" flex md:justify-center items-center">
             <Image
-              src={"/logo.svg"}
+              src={logo}
               width={28}
               height={28}
               alt="logo"

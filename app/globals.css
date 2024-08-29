@@ -91,3 +91,20 @@
   transform: scale(1.1);
   opacity: 1;
 }
+
+@media only screen and (max-width: 1024px) {
+  .event-card.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .event-card {
+    transition: transform 0.3s ease;
+    opacity: 1;
+  }
+  
+}
+
+.slick-list{
+  padding-top: 50px;
+  height: 40rem;
+}

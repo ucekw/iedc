@@ -1,4 +1,5 @@
 import Events from "@/components/events";
+import Footer from "@/components/footer";
 import HeroSection from "@/components/heroSection";
 import Navbar from "@/components/navbar"           ;
 import OurSaga from "@/components/ourSaga";
@@ -12,6 +13,7 @@ export default function Home() {
     <VisionAndMission/>
     <OurSaga/>
     <Events/>
+    <Footer/>
    </div>
   );
 }

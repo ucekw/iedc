@@ -28,6 +28,7 @@ const Event = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          
         },
       },
     ],
@@ -94,7 +95,7 @@ const Event = () => {
                 index === getMiddleSlideIndex(currentSlide) ? "active" : ""
               }`}
             >
-              <div className="bg-black h-[32rem] p-6 w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
+              <div className="bg-black h-[32rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
                 <div className="h-[20rem] w-full bg-slate-500 rounded-lg">
                   <img
                     src={event.image}

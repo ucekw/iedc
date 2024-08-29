@@ -35,8 +35,8 @@ function Page() {
         <span className="w-[30%] h-[1px] bg-[#FBBA1A] mt-10"></span>
 
         <div className="mb-20">
-          {execom.map((item) => (
-            <div className="mt-20 flex flex-col gap-16 items-center">
+          {execom.map((item, index) => (
+            <div key={index} className="mt-20 flex flex-col gap-16 items-center">
               <h1 className="text-white text-center text-3xl font-semibold ">
                 {item}
               </h1>

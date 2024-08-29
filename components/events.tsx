@@ -3,6 +3,7 @@ import { arch } from "os";
 import React, { useState } from "react";
 import Slider from "react-slick";
 import { Montserrat } from "next/font/google";
+import Image from "next/image";
 const font = Montserrat({ subsets: ["latin"] });
 
 const Event = () => {
@@ -28,7 +29,6 @@ const Event = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          
         },
       },
     ],
@@ -97,7 +97,9 @@ const Event = () => {
             >
               <div className="bg-black h-[32rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
                 <div className="h-[20rem] w-full bg-slate-500 rounded-lg">
-                  <img
+                  <Image
+                    width={200}
+                    height={200}
                     src={event.image}
                     alt={event.title}
                     className=" object-cover mb-4 rounded-lg"

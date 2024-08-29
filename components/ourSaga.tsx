@@ -25,7 +25,7 @@ function OurSaga() {
             </p>
           </div>
           <div className="w-[50%] flex items-center justify-center">
-            <div className="w-[35rem] h-[19rem] rounded-lg flex items-center justify-center">
+            <div className="w-[20rem] h-[19rem]  md:w-[35rem] md:h-[19rem] rounded-lg flex items-center justify-center">
               <Skeleton className="w-full h-full rounded-lg" />
               {/* <Image
               src={"/icons/mission.svg"}
@@ -51,7 +51,7 @@ function OurSaga() {
             </p>
           </div>
           <div className="w-[50%] flex items-center justify-center">
-            <div className="w-[35rem] h-[19rem] rounded-lg flex items-center justify-center">
+            <div className="w-[20rem] h-[19rem]  md:w-[35rem] md:h-[19rem] rounded-lg flex items-center justify-center">
               <Skeleton className="w-full h-full rounded-lg" />
               {/* <Image
               src={"/icons/mission.svg"}
@@ -74,7 +74,7 @@ function OurSaga() {
             </p>
           </div>
           <div className="w-[50%] flex items-center justify-center">
-            <div className="w-[35rem] h-[19rem] rounded-lg flex items-center justify-center">
+            <div className="w-[20rem] h-[19rem]  md:w-[35rem] md:h-[19rem] rounded-lg flex items-center justify-center">
               <Skeleton className="w-full h-full rounded-lg" />
               {/* <Image
               src={"/icons/mission.svg"}

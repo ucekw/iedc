@@ -11,7 +11,7 @@ function Navbar({ page }: { page: string }) {
 
   return (
     <div
-      className={`fixed z-50 bg-gradient-to-r font-semibold from-[#F4B518]/90 to-[#F2B318]/90 backdrop-blur-sm pb-10 ${ isOpen ? 'rounded-none': 'rounded-b-[50px]'} prevent-select w-full p-4 h-[5rem] flex items-center justify-between px-8 md:px-32 pt-10`}
+      className={` ${font.className} fixed z-50 bg-gradient-to-r font-medium from-[#F4B518]/90 to-[#F2B318]/90 backdrop-blur-sm pb-10 ${ isOpen ? 'rounded-none': 'rounded-b-[50px]'} prevent-select w-full p-4 h-[5rem] flex items-center justify-between px-8 md:px-32 pt-10`}
     >
       <Link href="/" className="">
         <Image

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import logo from "../public/logo.svg";
 function NotFound() {
   return (
     <div className="flex items-center bg-black justify-center h-screen w-full">
@@ -8,7 +8,7 @@ function NotFound() {
         <Image
           className="w-24 h-24"
           alt="logo"
-          src="/logo.svg"
+          src={logo}
           width={200}
           height={200}
         />

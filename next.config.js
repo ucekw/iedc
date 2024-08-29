@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { output: "export", images: { unoptimized: true } };
+const nextConfig = {
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.googleusercontent.com",
+        port: "",
+      },
+    ],
+    domains: ["localhost", "*.googleusercontent.com", "drive.google.com","image.domains"],
+  },
+  reactStrictMode: false,
+};
 
 module.exports = nextConfig;

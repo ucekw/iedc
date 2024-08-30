@@ -5,12 +5,14 @@ import { IoIosGlobe } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
+let size: string;
 
-const isMediumScreen = window.matchMedia("(min-width: 768px)").matches;
-const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+if (typeof window !== "undefined") {
+  const isMediumScreen = window.matchMedia("(min-width: 768px)").matches;
+  const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
 
-const size = isLargeScreen ? "1.6rem" : isMediumScreen ? "1rem" : "1.2rem";
-
+  size = isLargeScreen ? "1.6rem" : isMediumScreen ? "1rem" : "1.2rem";
+}
 
 export function resolveMediaIcon(link: string) {
   if (link.includes("linktr.ee")) {

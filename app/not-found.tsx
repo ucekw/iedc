@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logo from "../public/logo.svg";
+import Link from "next/link";
 function NotFound() {
   return (
     <div className="flex items-center bg-black justify-center h-screen w-full">
@@ -14,9 +15,9 @@ function NotFound() {
         />
         <h1 className="text-3xl font-semibold ">404</h1>
         <p>Page not found</p>
-        <a href="/" className="underline">
+        <Link href="/" className="underline">
           Go Home
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { FaLinkedin } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { Montserrat } from "next/font/google";
 import logo from "../public/logo.svg";
+import Link from "next/link";
 const font = Montserrat({ subsets: ["latin"] });
 
 function Footer() {
@@ -29,15 +30,15 @@ function Footer() {
           <div className="flex items-start w-full justify-evenly md:gap-0 gap-7 md:pt-16 md:flex-row flex-col">
             <div className="flex flex-col  justify-center">
               <h1 className="md:text-xl text-md font-semibold">Pages</h1>
-              <a href="/team" className="text-sm">
+              <Link href="/team" className="text-sm">
                 Team
-              </a>
-              <a href="/events" className="text-sm">
+              </Link>
+              <Link href="/events" className="text-sm">
                 Events
-              </a>
-              <a href="/about" className="text-sm">
+              </Link>
+              <Link href="/about" className="text-sm">
                 About Us
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col  justify-center">
               <h1 className="md:text-xl text-md font-semibold">Address</h1>

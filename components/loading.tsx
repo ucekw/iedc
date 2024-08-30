@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-
+import logo from "../public/logo.svg";
 import { useEffect, useState } from "react";
 
 function Loading() {
@@ -26,7 +26,7 @@ function Loading() {
       <Image
         className="w-40 h-40"
         alt="logo"
-        src="/logo.jpeg"
+        src={logo}
         width={200}
         height={200}
       />

@@ -33,7 +33,7 @@ function Page() {
             Entrepreneurship Development Centres (IEDCs) all around Kerala in
             various colleges to promote the culture of startups and to instill
             the concept of entrepreneurship among students. We branded our IEDC
-            as 'Legacy-IEDC-UCEK' and it serves primarily as a catalyst for
+            as &apos;Legacy-IEDC-UCEK&apos; and it serves primarily as a catalyst for
             entrepreneurship at the institute
           </p>
           <p className="leading-7 [&:not(:first-child)]:mt-6">

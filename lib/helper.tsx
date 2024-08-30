@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
 
 export function resolveMediaIcon(link: string) {
   if (link.includes("linktr.ee")) {
-    return <SiLinktree style={{ width: size, height: size }} />;
+    return <SiLinktree  style={{ width: size, height: size }} />;
   } else if (link.includes("twitter.com")) {
     return <FaXTwitter style={{ width: size, height: size }} />;
   } else if (link.includes("instagram.com")) {

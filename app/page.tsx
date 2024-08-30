@@ -7,21 +7,26 @@ import Navbar from "@/components/navbar"           ;
 import OurSaga from "@/components/ourSaga";
 import VisionAndMission from "@/components/visionAndMission";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleImagesLoaded = () => {
-    setLoading(false); // Hide the loading screen when images are loaded
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div>
       {loading ? (
         <Loading />
       ) : (
         <>
-          <HeroSection onImagesLoaded={handleImagesLoaded} />
+          <HeroSection  />
           <VisionAndMission />
           <OurSaga />
           <Events />

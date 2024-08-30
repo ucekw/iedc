@@ -26,10 +26,3 @@ export function getTeamData(){
               + "/gviz/tq?tqx=out:csv&sheet=s1" 
   return getData(url)
 }
-
-export function getImgLink(link: string) {
-    return (
-      "https://drive.google.com/uc?export=download&id=" +
-      link.replace("https://drive.google.com/open?id=", "")
-    );
-  }

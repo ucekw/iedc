@@ -1,12 +1,11 @@
-import { getImgLink } from "@/lib/data";
 import { resolveMediaIcon } from "@/lib/helper";
 import Image from "next/image";
 import React from "react";
-import { FaInstagram } from "react-icons/fa6";
+
 
 function MemberCard({ data }: { data: string[] }) {
   return (
-    <div className="md:min-h-[26rem] md:w-[19rem] min-h-[14rem]  w-[10rem] bg-yellow-600 rounded-lg p-5">
+    <div className="md:min-h-[26rem] md:w-[19rem] min-h-[14rem]  w-[10rem] bg-yellow-600 rounded-lg p-5 scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
       <div className="flex items-center justify-center flex-col md:gap-6 gap-2">
         <div className="md:h-56 md:w-56 h-28 w-28 rounded-full bg-black md:mt-4 overflow-hidden">
           <Image
@@ -15,7 +14,7 @@ function MemberCard({ data }: { data: string[] }) {
             alt="image"
             referrerPolicy={"no-referrer"}
             src={`https://lh3.googleusercontent.com/d/${data[7]}`}
-            className="mb-4 prevent-select w-full rounded-lg md:-mt-7 -mt-5"
+            className="mb-4 prevent-select w-full rounded-lg md:-mt-10 -mt-5 "
           />
         </div>
         <div className="flex flex-col items-center justify-center">

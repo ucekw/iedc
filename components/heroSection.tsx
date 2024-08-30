@@ -22,19 +22,13 @@ import image13 from "../public/images/13.jpg";
 
 const font = Montserrat({ subsets: ["latin"] });
 
-function HeroSection({ onImagesLoaded }: any) {
+function HeroSection() {
   const [loadedImages, setLoadedImages] = useState(0);
   const totalImages = 13; // l number of images
 
   const handleImageLoad = () => {
     setLoadedImages((prev) => prev + 1);
   };
-
-  useEffect(() => {
-    if (loadedImages === totalImages) {
-      onImagesLoaded(); // Notify that all images are loaded
-    }
-  }, [loadedImages, totalImages, onImagesLoaded]);
 
   return (
     <div
@@ -67,6 +61,7 @@ function HeroSection({ onImagesLoaded }: any) {
                 placeholder="blur"
                 quality={10}
                 onLoad={handleImageLoad}
+                loading="lazy"
                 className={`prevent-select w-32 h-[5rem] object-cover rounded-lg`}
               />
               <Image
@@ -107,6 +102,7 @@ function HeroSection({ onImagesLoaded }: any) {
                 placeholder="blur"
                 quality={10}
                 onLoad={handleImageLoad}
+                
                 className={`prevent-select w-32 h-[5rem] object-cover rounded-lg`}
               />
               <Image
@@ -147,6 +143,7 @@ function HeroSection({ onImagesLoaded }: any) {
               placeholder="blur"
               quality={10}
               onLoad={handleImageLoad}
+              loading="lazy"
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
@@ -158,6 +155,7 @@ function HeroSection({ onImagesLoaded }: any) {
               placeholder="blur"
               quality={10}
               onLoad={handleImageLoad}
+              loading="lazy"
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image
@@ -169,6 +167,7 @@ function HeroSection({ onImagesLoaded }: any) {
               placeholder="blur"
               quality={10}
               onLoad={handleImageLoad}
+              loading="lazy"
               className={`prevent-select w-52 h-[7rem] object-cover rounded-lg`}
             />
             <Image

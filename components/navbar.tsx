@@ -29,7 +29,7 @@ function Navbar({ page }: { page: string }) {
           />
         </Link>
         <Image
-          className="w-32 h-12 md:w-64 md:h-20"
+          className="w-32 h-12 md:w-[13rem] md:h-[4rem]"
           alt="logo"
           src={iedc}
           width={200}

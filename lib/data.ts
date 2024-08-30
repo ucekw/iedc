@@ -20,11 +20,9 @@ export function getData(url:string): Promise<string[][]> {
 }
 
 
-
-// Get Event details
 export function getTeamData(){
   const url = "https://docs.google.com/spreadsheets/d/"
-              + TEAM_SHEET_ID
+              + TEAM_SHEET_ID 
               + "/gviz/tq?tqx=out:csv&sheet=s1" 
   return getData(url)
 }

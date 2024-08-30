@@ -15,55 +15,55 @@ function Page() {
   const execom = [
     {
       title: "Nodal Officers",
-      role: 'nodal'
+      role: "nodal",
     },
     {
       title: "Project Coordinator",
-      role: 'project'
+      role: "project",
     },
     {
       title: "Mentors",
-      role: 'mentors'
+      role: "mentor",
     },
     {
       title: "Executive",
-      role: 'executive'
+      role: "executive",
     },
     {
       title: "Quality & Operations",
-      role: 'operations'
+      role: "operations",
     },
     {
       title: "Finance",
-      role: 'finance'
+      role: "finance",
     },
     {
       title: "Creative & Innovation",
-      role: 'creative'
+      role: "creative",
     },
     {
       title: "Technology",
-      role: 'technology'
+      role: "technology",
     },
     {
       title: "Branding & Marketing",
-      role: 'marketing'
+      role: "marketing",
     },
     {
       title: "Community",
-      role: 'community'
+      role: "community",
     },
     {
       title: "Women Innovation",
-      role: 'women'
+      role: "women",
     },
     {
       title: "IPR & Research",
-      role: 'research'
+      role: "research",
     },
     {
       title: "Executive Curators",
-      role: 'curators'
+      role: "curator",
     },
   ];
 
@@ -85,26 +85,34 @@ function Page() {
         <span className="w-[30%] h-[1px] bg-[#FBBA1A] mt-10"></span>
 
         <div className="mb-20">
-          {execom.map((item, index) => (
-            <div
-              key={index}
-              className="mt-20 flex flex-col gap-16 items-center"
-            >
-              <div className="flex flex-col">
-                <h1 className="text-white text-center md:text-3xl text-xl font-semibold ">
-                  {item.title}
-                </h1>
-                <span className="w-[100%] h-[1px] bg-[#FBBA1A]  "></span>
+          {execom.map((item, index) => {
+            const filteredMembers = teamData.filter(
+              (member) => member[2] === item.role
+            );
+            const gridColsClass =
+              filteredMembers.length === 2 ? "grid-cols-2" : "md:grid-cols-3 grid-cols-2 md:gap-52";
+
+            return (
+              <div
+                key={index}
+                className="mt-20 flex flex-col gap-16 items-center"
+              >
+                <div className="flex flex-col">
+                  <h1 className="text-white text-center md:text-3xl text-xl font-semibold ">
+                    {item.title}
+                  </h1>
+                  <span className="w-[100%] h-[1px] bg-[#FBBA1A]  "></span>
+                </div>
+                <div
+                  className={`grid ${gridColsClass} md:w-[80%] w-full  gap-4 px-5 justify-items-center`}
+                >
+                  {filteredMembers.map((member, index) => (
+                    <MemberCard data={member} key={index} />
+                  ))}
+                </div>
               </div>
-              <div className="grid grid-cols-2 md:w-[80%] w-full md:gap-52 gap-4 px-5 justify-items-center">
-                {teamData.map((member, index) => (
-                  <>
-                    {member[2] !== item.role ? null : <MemberCard data={member} key={index}/>}
-                  </>
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <Footer />

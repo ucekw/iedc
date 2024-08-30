@@ -17,7 +17,7 @@ function Page() {
           Conducted Events
         </h1>
         <span className="w-[30%] h-[1px] bg-[#FBBA1A] mt-10"></span>
-        <div className='w-[90%] md:p-10 p-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        <div className='w-[90%] md:px-32 px-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-4'>
             <EventCard />
             <EventCard />
             <EventCard />

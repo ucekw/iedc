@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Poppins } from "next/font/google";
 import logo from "../public/logo.svg";
+import iedc from "../public/iedc-logo.png";
 import Link from "next/link";
 const font = Poppins({ subsets: ["latin"], weight: ["500"] });
 
@@ -11,17 +12,31 @@ function Navbar({ page }: { page: string }) {
 
   return (
     <div
-      className={` ${font.className} fixed z-50 bg-gradient-to-r font-medium from-[#F4B518]/90 to-[#F2B318]/90 backdrop-blur-sm pb-10 ${ isOpen ? 'rounded-none': 'rounded-b-[50px]'} prevent-select w-full p-4 h-[5rem] flex items-center justify-between px-8 md:px-32 pt-10`}
+      className={` ${
+        font.className
+      } fixed z-50 bg-gradient-to-r font-medium from-[#F4B518]/90 to-[#F2B318]/90 backdrop-blur-sm pb-10 ${
+        isOpen ? "rounded-none" : "rounded-b-[50px]"
+      } prevent-select w-full p-4 h-[5rem] flex items-center justify-between px-8 md:px-32 pt-10`}
     >
-      <Link href="/" className="">
+      <div className="flex items-center ">
+        <Link href="/" className="">
+          <Image
+            className="w-16 h-16 md:w-24 md:h-24"
+            alt="logo"
+            src={logo}
+            width={200}
+            height={200}
+          />
+        </Link>
         <Image
-          className="w-16 h-16 md:w-24 md:h-24"
+          className="w-32 h-12 md:w-64 md:h-20"
           alt="logo"
-          src={logo}
+          src={iedc}
           width={200}
           height={200}
         />
-      </Link>
+      </div>
+
       <div className="md:hidden">
         <button
           className="text-black focus:outline-none"
@@ -43,13 +58,14 @@ function Navbar({ page }: { page: string }) {
           </svg>
         </button>
       </div>
-      <div style={{ transitionProperty: 'max-height, opacity, transform' }}
+      <div
+        style={{ transitionProperty: "max-height, opacity, transform" }}
         className={`${
           isOpen
             ? "max-h-[1000px] opacity-100 scale-100 flex bg-gradient-to-r from-[#F4B518]/90 to-[#F2B318]/90 backdrop-blur-sm "
             : "hidden"
         } transition-all duration-500 ease-in-out transform flex-col md:flex md:flex-row gap-8 items-center justify-center font-semibold absolute md:static top-[5rem] left-0 w-full md:w-auto rounded-b-[50px] md:rounded-none p-6 md:p-0 z-40`}
->        
+      >
         <Link
           href="/"
           className={`${page == "home" ? "text-white" : ""}`}

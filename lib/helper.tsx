@@ -3,17 +3,27 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { IoIosGlobe } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+
+
+const isMediumScreen = window.matchMedia("(min-width: 768px)").matches;
+const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+
+const size = isLargeScreen ? "1.6rem" : isMediumScreen ? "1rem" : "1.2rem";
+
 
 export function resolveMediaIcon(link: string) {
   if (link.includes("linktr.ee")) {
-    return <SiLinktree className="md:size-10 size-10" />;
+    return <SiLinktree style={{ width: size, height: size }} />;
   } else if (link.includes("twitter.com")) {
-    return <FaXTwitter className="md:size-7 size-4" />;
+    return <FaXTwitter style={{ width: size, height: size }} />;
   } else if (link.includes("instagram.com")) {
-    return <FaInstagram className="md:size-7 size-4" />;
+    return <FaInstagram style={{ width: size, height: size }} />;
   } else if (link.includes("linkedin.com")) {
-    return <FaLinkedin className="md:size-7 size-4" />;
+    return <FaLinkedin style={{ width: size, height: size }} />;
+  } else if (link.includes("github.com")) {
+    return <FaGithub style={{ width: size, height: size }} />;
   } else {
-    return <IoIosGlobe className="md:size-7 size-4" />;
+    return <IoIosGlobe style={{ width: size, height: size }} />;
   }
 }

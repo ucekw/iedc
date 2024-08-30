@@ -15,7 +15,7 @@ function MemberCard({ data }: { data: string[] }) {
             alt="image"
             referrerPolicy={"no-referrer"}
             src={`https://lh3.googleusercontent.com/d/${data[7]}`}
-            className="mb-4 prevent-select w-full rounded-lg -mt-7"
+            className="mb-4 prevent-select w-full rounded-lg md:-mt-7 -mt-5"
           />
         </div>
         <div className="flex flex-col items-center justify-center">

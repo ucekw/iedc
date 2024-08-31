@@ -1,13 +1,15 @@
 "use client";
 import { arch } from "os";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
+import { getImg, getLatestEvents } from "@/lib/data";
 const font = Montserrat({ subsets: ["latin"] });
 
 const Event = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [data, setData] = useState<string[][]>();
 
   const settings: SliderSettings = {
     infinite: true,
@@ -83,42 +85,49 @@ const Event = () => {
     return (index + middleIndex) % events.length;
   };
 
+  useEffect(() => {
+    getLatestEvents().then((data) => {
+      setData(data);
+    });
+  }, []);
+
   return (
     <div className={` ${font.className}py-8 bg-black text-white`}>
       <h2 className="text-center text-4xl font-bold pt-20">Our Events</h2>
       <div className="flex justify-center mt-20 pb-10">
         <Slider {...settings} className="w-full max-w-6xl">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className={`event-card  ${
-                index === getMiddleSlideIndex(currentSlide) ? "active" : ""
-              }`}
-            >
-              <div className="bg-black h-[32rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
-                <div className="h-[20rem] w-full bg-slate-500 rounded-lg">
-                  <Image
-                    width={200}
-                    height={200}
-                    src={event.image}
-                    alt={event.title}
-                    className=" object-cover mb-4 rounded-lg"
-                  />
-                </div>
+          {data &&
+            data.map((event, index) => (
+              <div
+                key={index}
+                className={`event-card  ${
+                  index === getMiddleSlideIndex(currentSlide) ? "active" : ""
+                }`}
+              >
+                <div className="bg-black h-[32rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
+                  <div className="h-[20rem] w-full bg-slate-500 rounded-lg">
+                    <Image
+                      width={200}
+                      height={200}
+                      src={getImg(event[2])}
+                      alt={event[1]}
+                      className=" object-cover mb-4 rounded-lg"
+                    />
+                  </div>
 
-                <div className="flex flex-col items-center justify-center mt-5">
-                  <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                  <p className="text-sm mb-4">{event.date}</p>
-                  <a
-                    href="/events"
-                    className=" bg-yellow-500 text-black px-4 py-2 rounded"
-                  >
-                    View More
-                  </a>
+                  <div className="flex flex-col items-center justify-center mt-5">
+                    <h3 className="text-xl font-bold mb-2">{event[1]}</h3>
+                    <p className="text-sm mb-4">{event[0]}</p>
+                    <a
+                      href="/events"
+                      className=" bg-yellow-500 text-black px-4 py-2 rounded"
+                    >
+                      View More
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </Slider>
       </div>
     </div>

@@ -1,29 +1,25 @@
-import {  getImg } from "@/lib/data";
-import { get } from "http";
+import {  getImgLink } from "@/lib/data";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-function EventCard({data}: {data: string[]}) {
-
-
-   
+function EventCard({data}:any) {
   return (
-    <div className="">
+    <div >
       <div className="bg-yellow-600 rounded-lg p-5 md:w-[22rem] w-[19rem] ">
-        <div className="p-5 items-center justify-center">
+        <div className="items-center justify-center bg-black w-full h-[27rem] rounded-lg">
           <Image
             width={200}
             height={200}
-            src={getImg(data[2])}
+            src={getImgLink(data.imageUrl)}
             alt={data[1]}
-            className=" object-cover mb-4 rounded-lg"
+            className="object-cover mb-4 rounded-lg h-full w-full"
           />
         </div>
         <div className="text-black gap-3 flex flex-col">
-          <h1 className="md:text-3xl text-xl font-semibold">{data[1]}</h1>
-          <p className="md:text-md text-xs">{data[0]}</p>
+          <h1 className="md:text-3xl text-xl font-semibold">{data.name}</h1>
+          <p className="md:text-md text-xs">{data.date}</p>
           <p className="md:text-md text-sm">
-           {data[3]}
+           {data.description}
           </p>
         </div>
       </div>

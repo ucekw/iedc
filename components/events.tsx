@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
-import { getImg, getLatestEvents } from "@/lib/data";
+import { getImgLink, getLatestEvents } from "@/lib/data";
 const font = Montserrat({ subsets: ["latin"] });
 
 const Event = () => {
@@ -104,14 +104,14 @@ const Event = () => {
                   index === getMiddleSlideIndex(currentSlide) ? "active" : ""
                 }`}
               >
-                <div className="bg-black h-[32rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
-                  <div className="h-[20rem] w-full bg-slate-500 rounded-lg">
+                <div className="bg-black h-[37rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
+                  <div className="h-[24rem] w-full bg-slate-500 rounded-lg">
                     <Image
                       width={200}
                       height={200}
-                      src={getImg(event[2])}
+                      src={getImgLink(event[2])}
                       alt={event[1]}
-                      className=" object-cover mb-4 rounded-lg"
+                      className=" object-cover mb-4 rounded-lg h-full w-full"
                     />
                   </div>
 

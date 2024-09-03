@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
 import moment from "moment";
-import CountDown from "./ui/CountDown";
+import CountDown from "./ui/countDown";
 
 const font = Montserrat({ subsets: ["latin"] });
 

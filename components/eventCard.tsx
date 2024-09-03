@@ -16,7 +16,7 @@ function EventCard({data}:any) {
           />
         </div>
         <div className="text-black gap-3 flex flex-col">
-          <h1 className="md:text-3xl text-xl font-semibold">{data.name}</h1>
+          <h1 className="md:text-3xl text-xl font-semibold mt-2">{data.name}</h1>
           <p className="md:text-md text-xs">{data.date}</p>
           <p className="md:text-md text-sm">
            {data.description}

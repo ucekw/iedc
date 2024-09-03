@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import { getImgLink, getLatestEvents } from "@/lib/data";
+import UpcomingEvent from "./upcomingEvent";
 const font = Montserrat({ subsets: ["latin"] });
 
 const Event = () => {
@@ -87,13 +88,22 @@ const Event = () => {
 
   useEffect(() => {
     getLatestEvents().then((data) => {
+      console.log(data);
+
       setData(data);
     });
   }, []);
 
   return (
-    <div className={` ${font.className}py-8 bg-black text-white`}>
-      <h2 className="text-center text-4xl font-bold pt-20">Our Events</h2>
+    <div className={` ${font.className} py-8 bg-black text-white`}>
+
+      
+      <div className="w-full flex items-center justify-center mt-10">
+        {/* <UpcomingEvent /> */}
+      </div>
+      <h2 className="text-center text-4xl font-bold pt-20">
+        Our Recent Events
+      </h2>
       <div className="flex justify-center mt-20 pb-10">
         <Slider {...settings} className="w-full max-w-6xl">
           {data &&
@@ -104,20 +114,20 @@ const Event = () => {
                   index === getMiddleSlideIndex(currentSlide) ? "active" : ""
                 }`}
               >
-                <div className="bg-black h-[37rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
+                <div className="bg-black h-[35rem] p-6  w-full sm:w-[20rem] rounded-lg border border-yellow-500 relative">
                   <div className="h-[24rem] w-full bg-slate-500 rounded-lg">
                     <Image
                       width={200}
                       height={200}
-                      src={getImgLink(event[2])}
-                      alt={event[1]}
+                      src={getImgLink(event[1])}
+                      alt={event[2]}
                       className=" object-cover mb-4 rounded-lg h-full w-full"
                     />
                   </div>
 
                   <div className="flex flex-col items-center justify-center mt-5">
-                    <h3 className="text-xl font-bold mb-2">{event[1]}</h3>
-                    <p className="text-sm mb-4">{event[0]}</p>
+                    <h3 className="text-xl font-bold mb-2">{event[2]}</h3>
+                    <p className="text-sm mb-4">{event[4]}</p>
                     <a
                       href="/events"
                       className=" bg-yellow-500 text-black px-4 py-2 rounded"

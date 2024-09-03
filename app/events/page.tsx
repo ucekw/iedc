@@ -29,6 +29,8 @@ function Page() {
   useEffect(() => {
     getPastEvents().then((response) => {
       setData(response.Events);
+      console.log(response.Events);
+      
       setLoading(false);
     });
   }, []);
@@ -55,14 +57,14 @@ function Page() {
               Conducted Events
             </h1>
             <span className="w-[30%] h-[1px] bg-[#FBBA1A] mt-10"></span>
-            <div className="w-[90%] md:px-32 px-2 pt-10 pb-10  gap-4">
+            <div className="w-[90%] flex  px-2 pt-10 pb-10  gap-4">
               {data &&
                 data.map((event: YearEvents, index: number) => (
-                  <div className="w-full  px-2 pt-10 pb-10 justify-items-center gap-4">
-                    <h1 className="text-white text-3xl" key={index}>
+                  <div key={index} className="w-full  px-2 pt-10 pb-10 justify-items-center gap-4">
+                    <h1 className="text-white text-3xl" >
                       {event.year.toString()}
                     </h1>
-                    <div className="w-full  px-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-4">
+                    <div className="md:w-[95%] w-full px-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-4">
                       {event?.eventdata.map(
                         (eventData: Event, index: number) => (
                           <EventCard data={eventData} key={index} />

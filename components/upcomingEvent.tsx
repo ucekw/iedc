@@ -22,6 +22,7 @@ function UpcomingEvent() {
     });
   }, []);
 
+  
   return (
     <div className={`flex flex-col gap-3 ${font.className}`}>
       {data ? <h2 className="text-center text-4xl font-bold pt-20">Upcoming Event</h2> : ''}
@@ -44,9 +45,7 @@ function UpcomingEvent() {
               <div className="w-[70%] text-white p-5 flex flex-col gap-2">
                 <h1 className="text-3xl font-semibold">{event[2]}</h1>
                 <h1 className="text-[13px] font-semibold">
-                  {moment(event[4], "DD/MM/YYYY HH:mm:ss").format(
-                    "DD MMM, YYYY"
-                  )}
+                  {moment(event[4], "DD/MM/YYYY HH:mm:ss").format("h:mm a")}
                 </h1>
                 <h1 className="text-sm">{event[3]}</h1>
                 <CountDown

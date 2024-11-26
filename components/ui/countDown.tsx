@@ -16,8 +16,7 @@ export default function CountDown({
   const [countdown, setCountdown]: any = useState();
   const targetDate: Date = parseDate(date._i);
 
-  console.log(date);
-  
+
   useEffect(() => {
     function updateCountdown() {
       if (event && event[4]) {

@@ -28,12 +28,14 @@ function Page() {
 
   useEffect(() => {
     getPastEvents().then((response) => {
-      setData(response.Events);
-      console.log(response.Events);
       
+      setData(response.Events);
+
       setLoading(false);
     });
   }, []);
+
+
 
   return (
     <>
@@ -61,7 +63,7 @@ function Page() {
               {data &&
                 data.map((event: YearEvents, index: number) => (
                   <div key={index} className="w-full  px-2 pt-10 pb-10 justify-items-center gap-4">
-                    <h1 className="text-white text-3xl" >
+                    <h1 className="text-white md:text-3xl text-5xl font-semibold" >
                       {event.year.toString()}
                     </h1>
                     <div className="md:w-[95%] w-full px-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-4">

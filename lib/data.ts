@@ -50,13 +50,15 @@ export function getUpcomingEvent() {
 
 export function getLatestEvents() {
   const today = new Date();
-  const formattedToday = today.toISOString().split("T")[0]; 
-    
+  const formattedToday = today.toISOString().split("T")[0];
+
   const url =
     "https://docs.google.com/spreadsheets/d/" +
     EVENTS_SHEET_ID +
     "/gviz/tq?tqx=out:csv&sheet=s1&tq=" +
-    encodeURIComponent( `select * where E < date '${formattedToday}' order by E desc limit 3`);
+    encodeURIComponent(
+      `select * where E < date '${formattedToday}' order by E desc limit 3`
+    );
   return getData(url);
 }
 
@@ -84,9 +86,14 @@ export async function getPastEvents() {
 
   const eventsArray = await getData(url);
 
+  console.log(eventsArray);
+
   const groupedEvents: YearEvents = eventsArray.reduce(
     (acc: YearEvents, [timestamp, imageUrl, name, description, date]) => {
-      const [month, day, year] = date.split("/");
+
+      const [datePart] = date.split(" ");
+      const [month, day, year] = datePart.split("/");
+
       if (!acc[year]) {
         acc[year] = [];
       }

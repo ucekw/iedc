@@ -11,8 +11,8 @@ import logo from "../../public/logo.jpeg";
 
 const font = Montserrat({ subsets: ["latin"] });
 function Page() {
-  const [teamData, setTeamData] = React.useState<string[][]>([]);
-  const [loading, setLoading] = useState(true);
+    const [teamData, setTeamData] = React.useState<string[][]>([]);
+    const [loading, setLoading] = useState(true);
   const execom = [
     {
       title: "Nodal Officers",

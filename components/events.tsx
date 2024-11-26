@@ -99,7 +99,7 @@ const Event = () => {
 
       
       <div className="w-full flex items-center justify-center mt-10">
-        {/* <UpcomingEvent /> */}
+        <UpcomingEvent />
       </div>
       <h2 className="text-center text-4xl font-bold pt-20">
         Our Recent Events

@@ -126,8 +126,17 @@ const Event = () => {
                   </div>
 
                   <div className="flex flex-col items-center justify-center mt-5">
-                    <h3 className="text-xl font-bold mb-2">{event[2]}</h3>
-                    <p className="text-sm mb-4">{event[4]}</p>
+                    <h3 className="text-xl font-bold mb-4 text-center h-10">{event[2]}</h3>
+                    <p className="text-[13px]"> {new Date(event[4]).toLocaleDateString("en-GB", {
+                     day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      weekday: undefined,
+                    }).replace(/(\d{1,2})(?=\s)/, (day) => {
+                      const suffix = ["th", "st", "nd", "rd"];
+                      const v = parseInt(day) % 100;
+                      return day + (suffix[(v - 20) % 10] || suffix[v] || suffix[0]);
+                    })} </p>
                     <a
                       href="/events"
                       className=" bg-yellow-500 text-black px-4 py-2 rounded"

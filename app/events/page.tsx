@@ -7,6 +7,7 @@ import EventCard from "@/components/eventCard";
 import { getPastEvents } from "@/lib/data";
 import Image from "next/image";
 import logo from "../../public/logo.jpeg";
+import UpcomingEvent from "@/components/upcomingEvent";
 
 
 const font = Montserrat({ subsets: ["latin"] });
@@ -52,6 +53,7 @@ function Page() {
       ) : (
         <div>
           <Navbar page="events" />
+          <UpcomingEvent/>
           <div
             className={` ${font.className} bg-black h-full flex flex-col items-center w-full pt-40`}
           >
@@ -63,7 +65,7 @@ function Page() {
               {data &&
                 data.map((event: YearEvents, index: number) => (
                   <div key={index} className="w-full  px-2 pt-10 pb-10 justify-items-center gap-4">
-                    <h1 className="text-white md:text-3xl text-5xl font-semibold" >
+                    <h1 className="text-white md:text-2xl text-5xl font-semibold" >
                       {event.year.toString()}
                     </h1>
                     <div className="md:w-[95%] w-full px-2 pt-10 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-4">

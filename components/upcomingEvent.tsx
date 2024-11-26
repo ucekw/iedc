@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
 import moment from "moment";
-import CountDown from "./ui/countDown";
+import CountDown from "./ui/CountDown";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -22,10 +22,11 @@ function UpcomingEvent() {
     });
   }, []);
 
-  
   return (
-    <div className={`flex flex-col gap-3 ${font.className}`}>
-      {data ? <h2 className="text-center text-4xl font-bold pt-20">Upcoming Event</h2> : ''}
+    <div className={`flex flex-col gap-3 ${font.className} bg-black justify-center items-center pt-10`}>
+      {data && (
+        <h2 className="text-center text-4xl font-bold pt-20 text-white">Upcoming Event</h2>
+      )}
       {data &&
         data.map((event: any, index: number) => (
           <div
@@ -44,14 +45,15 @@ function UpcomingEvent() {
               </div>
               <div className="w-[70%] text-white p-5 flex flex-col gap-2">
                 <h1 className="text-3xl font-semibold">{event[2]}</h1>
-                <h1 className="text-[13px] font-semibold">
-                  {moment(event[4], "DD/MM/YYYY HH:mm:ss").format("h:mm a")}
+                <h1 className="text-[13px] font-semibold ">
+                  {moment(event[4], "MM/DD/YYYY HH:mm:ss").format(
+                    "Do MMMM YYYY"
+                  )}{" "}
+                  •
+                  {moment(event[4], "DD/MM/YYYY HH:mm:ss").format(" h:mm a")}
                 </h1>
                 <h1 className="text-sm">{event[3]}</h1>
-                <CountDown
-                  event={event}
-                  date={moment(event[4], "DD/MM/YYYY HH:mm:ss")}
-                />
+                <CountDown date={event[4]} />
               </div>
             </div>
           </div>

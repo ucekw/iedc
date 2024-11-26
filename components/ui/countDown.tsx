@@ -1,44 +1,62 @@
 "use client";
 
-import moment from "moment";
 import { useEffect, useState } from "react";
 import { Outfit } from "next/font/google";
-import { countdownHelper, parseDate } from "@/lib/utils";
+import { countdownHelper} from "@/lib/utils";
 const inter = Outfit({ subsets: ["latin"] });
 
 export default function CountDown({
-  event,
-  date
+  date,
 }: {
-  event: Array<string>;
-  date: any;
+  date: Date;
 }) {
-  const [countdown, setCountdown]: any = useState();
-  const targetDate: Date = parseDate(date._i);
+
+  interface Countdown {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  }
 
 
-  useEffect(() => {
+  const [countdown, setCountdown] = useState<Countdown>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  
+  // const targetDate: Date = parseDate(date._i);
+
+    
+   useEffect(() => {
+    // Ensure targetDate is a valid Date object
+    const targetDate: Date = typeof date === 'string' ? new Date(date) : date;
+
     function updateCountdown() {
-      if (event && event[4]) {
+      if (targetDate instanceof Date && !isNaN(targetDate.getTime())) {
         const differenceMs: number =
           targetDate.getTime() - new Date().getTime();
         setCountdown(countdownHelper(differenceMs));
+      } else {
+        console.error('Invalid date:', targetDate);
       }
     }
-    const intervalId = setInterval(updateCountdown, 1000); // Update countdown every second
-    return () => clearInterval(intervalId); // Cleanup function to clear the interval when component unmounts or when bannerEvent changes
-  }, [event]);
 
-  
+    const intervalId = setInterval(updateCountdown, 1000); // Update countdown every second
+    return () => clearInterval(intervalId); // Cleanup function to clear the interval
+  }, [date]);
+
+
   return (
     <div className={`${inter.className}`}>
       <div
-        className={`grid grid-flow-col mt-4 gap-5 text-center auto-cols-max `}
+        className={`grid grid-flow-col mt-4 md:gap-5 gap-[3px] text-center auto-cols-max `}
       >
-        <div
-          className={`flex flex-col p-2 bg-[#3d3c3c6e] rounded-box text-white text-sm sm:text-sm md:text`}
+        {countdown.days ? (<div
+          className={`flex flex-col  items-center justify-center  bg-[#131313] md:w-11   w-8 md:h-11 h-8 rounded-lg text-white text-[10px]`}
         >
-          <span className="countdown font-mono text-3xl sm:text-4xl md:text-5xl">
+          <span className="countdown font-mono md:text-lg text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -47,11 +65,14 @@ export default function CountDown({
                 } as React.CSSProperties
               }
             ></span>
+           
           </span>
-          DAYS
-        </div>
-        <div className="flex flex-col p-2 bg-[#3d3c3c6e] rounded-box text-white text-sm sm:text-sm md:text">
-          <span className="countdown font-mono text-3xl sm:text-4xl md:text-5xl">
+          <p className="md:text-[10px] text-[9px]"></p>
+          
+        </div>):null}
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
+
+          <span className="countdown font-mono  md:text-lg text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -60,11 +81,17 @@ export default function CountDown({
                 } as React.CSSProperties
               }
             ></span>
+           
           </span>
-          HOURS
+     
+          <p className="md:text-[10px] text-[9px]">
+            
+            HRS
+            </p>
         </div>
-        <div className="flex flex-col p-2 bg-[#3d3c3c6e] rounded-box text-white  text-sm sm:text-sm md:text">
-          <span className="countdown font-mono text-3xl sm:text-4xl md:text-5xl">
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
+
+          <span className="countdown font-mono  md:text-lg text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -73,11 +100,15 @@ export default function CountDown({
                 } as React.CSSProperties
               }
             ></span>
+
           </span>
+          <p className="md:text-[10px] text-[9px]">
+
           MIN
+          </p>
         </div>
-        <div className="flex flex-col p-2 bg-[#3d3c3c6e] rounded-box text-white  text-sm sm:text-sm md:text">
-          <span className="countdown font-mono text-3xl sm:text-4xl md:text-5xl">
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
+        <span className="countdown font-mono  md:text-lg text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -87,7 +118,10 @@ export default function CountDown({
               }
             ></span>
           </span>
+          <p className="md:text-[10px] text-[9px]">
+
           SEC
+          </p>
         </div>
       </div>
     </div>

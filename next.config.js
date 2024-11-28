@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
 const nextConfig = {
   images: {
+  basePath: 'iedc.uck.ac.in',
+  assetPrefix: 'iedc.uck.ac.in',
     unoptimized: true,
     remotePatterns: [
       {

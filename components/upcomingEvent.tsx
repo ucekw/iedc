@@ -23,27 +23,27 @@ function UpcomingEvent() {
   }, []);
 
   return (
-    <div className={`flex flex-col gap-3 ${font.className} bg-black justify-center items-center pt-10`}>
+    <div className={`flex flex-col gap-3 ${font.className} bg-black justify-center items-center md:pt-10 pt-32 md:p-0 p-3`}>
       {data?.length != 0 && (
-        <h2 className="text-center text-4xl font-bold pt-20 text-white">Upcoming Event{data?.length > 1 ? 's': ''}</h2>
+        <h2 className="text-center text-4xl font-bold md:pt-20 pb-5 text-white">Upcoming Event{data?.length > 1 ? 's': ''}</h2>
       )}
       {data &&
         data.map((event: any, index: number) => (
           <div
             key={index}
-            className="w-[55rem] min-h-[27rem] border-2 rounded-xl  border-yellow-500 mt-4"
+            className="md:w-[55rem] min-h-[27rem] border-2 rounded-xl  border-yellow-500 md:mt-4"
           >
             <div className="w-full h-full flex gap-3 md:flex-row flex-col">
-              <div className="h-full flex justify-center items-center p-4 md:w-[110rem] w-[20rem]">
+              <div className="h-full flex justify-center items-center p-4 md:w-[50%] ">
                 <Image
                   width={50}
                   height={50}
                   src={getImgLink(event[1])}
                   alt={event[2]}
-                  className="object-cover rounded-lg aspect-square w-full h-[25rem]"
+                  className="object-cover rounded-lg aspect-square w-full md:h-[25rem]"
                 />
               </div>
-              <div className="text-white p-5 flex flex-col gap-2">
+              <div className="text-white p-5 flex flex-col gap-2 md:w-[50%]">
                 <h1 className="text-3xl font-semibold">{event[2]}</h1>
                 <h1 className="text-[13px] font-semibold ">
                   {moment(event[4], "MM/DD/YYYY HH:mm:ss").format(

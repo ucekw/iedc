@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: 'iedc.uck.ac.in',
-  assetPrefix: 'iedc.uck.ac.in',
+  basePath: 'http://iedc.uck.ac.in',
+  assetPrefix: 'http://iedc.uck.ac.in',
   images: {
     unoptimized: true,
     remotePatterns: [

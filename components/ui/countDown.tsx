@@ -54,9 +54,9 @@ export default function CountDown({
         className={`grid grid-flow-col mt-4 md:gap-5 gap-[3px] text-center auto-cols-max `}
       >
         {countdown.days ? (<div
-          className={`flex flex-col  items-center justify-center  bg-[#131313] md:w-11   w-8 md:h-11 h-8 rounded-lg text-white text-[10px]`}
+          className={`flex flex-col  items-center justify-center  bg-[#131313] md:w-16 w-8 md:h-16 h-8 rounded-lg text-white text-[10px]`}
         >
-          <span className="countdown font-mono md:text-lg text-[13px]">
+          <span className="countdown font-mono md:text-xl text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -67,12 +67,12 @@ export default function CountDown({
             ></span>
            
           </span>
-          <p className="md:text-[10px] text-[9px]"></p>
+          <p className="md:text-[12px] text-[9px]">DAYS</p>
           
         </div>):null}
-        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-16 w-8 md:h-16 h-8 rounded-lg text-white text-[10px]">
 
-          <span className="countdown font-mono  md:text-lg text-[13px]">
+          <span className="countdown font-mono  md:text-xl text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -84,14 +84,14 @@ export default function CountDown({
            
           </span>
      
-          <p className="md:text-[10px] text-[9px]">
+          <p className="md:text-[12px] text-[9px]">
             
             HRS
             </p>
         </div>
-        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-16 w-8 md:h-16 h-8 rounded-lg text-white text-[10px]">
 
-          <span className="countdown font-mono  md:text-lg text-[13px]">
+          <span className="countdown font-mono  md:text-xl text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -102,13 +102,13 @@ export default function CountDown({
             ></span>
 
           </span>
-          <p className="md:text-[10px] text-[9px]">
+          <p className="md:text-[12px] text-[9px]">
 
           MIN
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-11 w-8 md:h-11 h-8 rounded-lg text-white text-[10px]">
-        <span className="countdown font-mono  md:text-lg text-[13px]">
+        <div className="flex flex-col items-center justify-center  bg-[#131313] md:w-16 w-8 md:h-16 h-8 rounded-lg text-white text-[10px]">
+        <span className="countdown font-mono  md:text-xl text-[13px]">
             <span
               className={`${inter.className}`}
               style={
@@ -118,7 +118,7 @@ export default function CountDown({
               }
             ></span>
           </span>
-          <p className="md:text-[10px] text-[9px]">
+          <p className="md:text-[12px] text-[9px]">
 
           SEC
           </p>

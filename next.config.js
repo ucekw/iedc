@@ -11,7 +11,6 @@ const nextConfig = {
     ],
     domains: ["localhost", "*.googleusercontent.com", "drive.google.com", "lh3.googleusercontent.com"],
   },
-  reactStrictMode: false,
 };
 
 module.exports = nextConfig;

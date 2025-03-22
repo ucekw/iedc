@@ -1,9 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: 'https://iedc.uck.ac.in',
-  assetPrefix: 'https://iedc.uck.ac.in',
-  images: {
-    unoptimized: true,
+import type { NextConfig } from "next";
+const nextConfig:NextConfig = {
+};
+
+module.exports = {
     remotePatterns: [
       {
         protocol: "https",
@@ -12,8 +11,7 @@ const nextConfig = {
       },
     ],
     domains: ["localhost", "*.googleusercontent.com", "drive.google.com", "lh3.googleusercontent.com"],
-  },
-  reactStrictMode: false,
 };
 
-module.exports = nextConfig;
+
+export default nextConfig;

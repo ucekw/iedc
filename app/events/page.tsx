@@ -61,7 +61,7 @@ function Page() {
               Conducted Events
             </h1>
             <span className="w-[30%] h-[1px] bg-[#FBBA1A] mt-10"></span>
-            <div className="w-[90%] flex  px-2 pt-10 pb-10  gap-4">
+            <div className="w-[90%] flex flex-col px-2 pt-10 pb-10  gap-4">
               {data &&
                 data.map((event: YearEvents, index: number) => (
                   <div key={index} className="w-full  px-2 pt-10 pb-10 justify-items-center gap-4">

@@ -2,6 +2,7 @@ import Papa from "papaparse";
 
 export const TEAM_SHEET_ID = "11wb50a61GeHHSCq86HRAE9IXViXM3RIT--p42OZ2QhY";
 export const EVENTS_SHEET_ID = "1GjKhDerIdLdzXw_epwXEwQo6BhniCQym-5s-sIOKiaQ";
+export const NEW_TEAM = "1CokGnxTN_TqPyv24Cplsozpbvoom_RouKaz7P9bK4-4";
 
 export function getData(url: string): Promise<string[][]> {
   return new Promise((resolve, reject) => {
@@ -18,6 +19,17 @@ export function getData(url: string): Promise<string[][]> {
       },
     });
   });
+}
+
+export function getMemberData(slug: string) {
+
+  console.log("Fetching member data for slug:", slug);
+  const url =
+    "https://docs.google.com/spreadsheets/d/" +
+    NEW_TEAM +
+    "/gviz/tq?tqx=out:csv&sheet=s1&tq=" + 
+    encodeURIComponent(`select * where E = '${slug}'`);
+  return getData(url)
 }
 
 export function getImgLink(link: string) {

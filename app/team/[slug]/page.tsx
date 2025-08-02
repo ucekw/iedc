@@ -12,7 +12,7 @@ function Page() {
   const params = useParams();
   const searchParams = useSearchParams();
 
-  const [data, setData] = useState<string[][] | undefined>(undefined);
+  const [data, setData] = useState<string[] | undefined>(undefined);
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
   const id = searchParams.get("id");
 
@@ -20,7 +20,7 @@ function Page() {
 
   useEffect(() => {
     getMemberData(slugId.toLowerCase()).then((data) => {
-      setData([data[0]]);
+      setData(data[0]);
       console.log("Member data fetched:", data);
     });
   }, []);

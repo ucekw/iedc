@@ -27,38 +27,87 @@ export async function generateMetadata({
 
     const memberName = data[1] || "Team Member";
     const memberRole = data[5] || "Legacy IEDC UCEK Team";
+    const baseUrl = 'http://localhost:3000';
     
-    // Handle image URL
-    let imageUrl = "/logo.svg"; // Default fallback
+    // Handle image URL with proper sizing for social media
+    let ogImageUrl = `${baseUrl}/logo.svg`; // Default fallback
+    let twitterImageUrl = `${baseUrl}/logo.svg`; // Default fallback
+    
     if (data[9]) {
       const match = data[9].match(/\/d\/([\w-]+)/);
       if (match && match[1]) {
-        imageUrl = `https://lh3.googleusercontent.com/d/${match[1]}`;
+        const driveImageId = match[1];
+        
+        // Create properly sized images for different platforms
+        ogImageUrl = `${baseUrl}/api/image-proxy?id=${driveImageId}`;
+        twitterImageUrl = `${baseUrl}/api/image-proxy?id=${driveImageId}&width=1200&height=675`; // Twitter's preferred ratio
       }
     }
 
     return {
       title: `${memberName} - Legacy IEDC UCEK`,
       description: `${memberName}, ${memberRole} at Legacy IEDC UCEK. Learn about our team member and their role in Innovation and Entrepreneurship Development.`,
+      
       openGraph: {
+        title: `${memberName} - Legacy IEDC UCEK`,
+        description: `${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
+        url: `${baseUrl}/team/${slug}${id ? `?id=${id}` : ''}`,
+        siteName: 'Legacy IEDC UCEK',
+        type: 'profile',
+        images: [
+          {
+            url: ogImageUrl,
+            width: 264,
+            height: 264,
+            alt: `${memberName} - Legacy IEDC UCEK Team Member`,
+            type: 'image/jpeg',
+          }
+        ],
+        locale: 'en_US',
+      },
+      
+      twitter: {
+        card: 'summary_large_image',
         title: `${memberName} - Legacy IEDC UCEK`,
         description: `${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
         images: [
           {
-            url: imageUrl,
-            width: 1200,
-            height: 630,
+            url: twitterImageUrl,
             alt: `${memberName} - Legacy IEDC UCEK Team Member`,
+            width: 1200,
+            height: 675,
           }
         ],
-        type: 'profile',
-        siteName: 'Legacy IEDC UCEK',
+        creator: '@LegacyIEDCUCEK', // Replace with your Twitter handle
+        site: '@LegacyIEDCUCEK', // Replace with your Twitter handle
       },
-      twitter: {
-        card: 'summary_large_image',
-        title: `${memberName} - Legacy IEDC UCEK`,
-        description: `Meet ${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
-        images: [imageUrl],
+
+      // Additional metadata for better compatibility
+      verification: {
+        // Add verification tokens if you have them
+        // google: 'your-google-verification-token',
+        // yandex: 'your-yandex-verification-token',
+      },
+      
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+      
+      // Additional social media metadata
+      other: {
+        // WhatsApp uses these
+        'og:image:width': '1200',
+        'og:image:height': '630',
+        // LinkedIn specific
+        'linkedin:owner': 'your-linkedin-page-id',
       },
     };
   } catch (error) {
@@ -66,6 +115,18 @@ export async function generateMetadata({
     return {
       title: 'Legacy IEDC UCEK Team',
       description: 'Meet our team at Legacy IEDC UCEK',
+      openGraph: {
+        title: 'Legacy IEDC UCEK Team',
+        description: 'Meet our team at Legacy IEDC UCEK',
+        images: [
+          {
+            url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://iedc.uck.ac.in'}/logo.svg`,
+            width: 1200,
+            height: 630,
+            alt: 'Legacy IEDC UCEK',
+          }
+        ],
+      },
     };
   }
 }

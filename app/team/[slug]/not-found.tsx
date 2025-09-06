@@ -11,7 +11,7 @@ export default function NotFound() {
       <h2 className="text-6xl text-[#FBBA1A] mb-4">404</h2>
       <p className="text-white text-xl mb-6">Team member not found</p>
       <p className="text-gray-400 text-center mb-8 max-w-md">
-        The team member you're looking for doesn't exist or has been moved.
+        The team member you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
       <Link
         href="/team"

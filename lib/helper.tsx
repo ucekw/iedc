@@ -29,3 +29,19 @@ export function resolveMediaIcon(link: string) {
     return <IoIosGlobe style={{ width: size, height: size }} />;
   }
 }
+
+export function getPlatformName(link: string): string {
+  if (link.includes("linktr.ee")) {
+    return "Linktree";
+  } else if (link.includes("twitter.com") || link.includes("x.com")) {
+    return "Twitter";
+  } else if (link.includes("instagram.com")) {
+    return "Instagram";
+  } else if (link.includes("linkedin.com")) {
+    return "LinkedIn";
+  } else if (link.includes("github.com")) {
+    return "GitHub";
+  } else {
+    return "Website";
+  }
+}

@@ -16,8 +16,6 @@ function UpcomingEvent() {
     getUpcomingEvent().then((response) => {
       setData(response);
 
-      console.log(response);
-
       setLoading(false);
     });
   }, []);

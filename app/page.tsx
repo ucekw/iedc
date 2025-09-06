@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
   
   return (
-    <div>
+    <div className="bg-black min-h-screen">
       {loading ? (
         <Loading />
       ) : (

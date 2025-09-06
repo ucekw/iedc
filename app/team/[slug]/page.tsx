@@ -1,45 +1,77 @@
-"use client";
-
-import { useParams, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
-// Removed unused import of Papa
 import { getMemberData } from "@/lib/data";
-import { Montserrat } from "next/font/google";
+import type { Metadata } from 'next';
+import TeamMemberClient from "@/components/teamMemberClient";
 
-const font = Montserrat({ subsets: ["latin"] });
-
-function Page() {
-  const params = useParams();
-  const searchParams = useSearchParams();
-
-  const [data, setData] = useState<string[][] | undefined>(undefined);
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
-  const id = searchParams.get("id");
-
+// Server-side metadata generation
+export async function generateMetadata({ 
+  params, 
+  searchParams 
+}: {
+  params: { slug: string };
+  searchParams: { id?: string };
+}): Promise<Metadata> {
+  const slug = params.slug;
+  const id = searchParams.id;
   const slugId = slug + (id ? `-${id}` : "");
 
-  useEffect(() => {
-    getMemberData(slugId.toLowerCase()).then((data) => {
-      setData([data[0]]);
-      console.log("Member data fetched:", data);
-    });
-  }, []);
+  try {
+    const result = await getMemberData(slugId.toLowerCase());
+    const data = result[0];
 
-  return (
-    <div
-      className={` ${font.className} bg-black h-screen flex flex-col items-center w-full pt-40`}
-    >
-      <h1 className="text-[#FBBA1A] text-center md:text-5xl text-3xl font-semibold ">
-        TEAM
-      </h1>
-      <div className="text-white flex flex-col items-center mt-10">
-        <p className="text-2xl">{(data && data[1]) || ""}</p>
-        <p className="text-lg">{(data && data[5]) || ""}</p>
-      </div>
+    if (!data) {
+      return {
+        title: 'Team Member Not Found - Legacy IEDC UCEK',
+        description: 'Team member profile not found at Legacy IEDC UCEK',
+      };
+    }
 
-      <p className="bottom-4 absolute text-white text-[13px]">THIS PAGE IS UNDER CONSTRUCTION</p>
-    </div>
-  );
+    const memberName = data[1] || "Team Member";
+    const memberRole = data[5] || "Legacy IEDC UCEK Team";
+    
+    // Handle image URL
+    let imageUrl = "/logo.svg"; // Default fallback
+    if (data[9]) {
+      const match = data[9].match(/\/d\/([\w-]+)/);
+      if (match && match[1]) {
+        imageUrl = `https://lh3.googleusercontent.com/d/${match[1]}`;
+      }
+    }
+
+    return {
+      title: `${memberName} - Legacy IEDC UCEK`,
+      description: `${memberName}, ${memberRole} at Legacy IEDC UCEK. Learn about our team member and their role in Innovation and Entrepreneurship Development.`,
+      openGraph: {
+        title: `${memberName} - Legacy IEDC UCEK`,
+        description: `${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: `${memberName} - Legacy IEDC UCEK Team Member`,
+          }
+        ],
+        type: 'profile',
+        siteName: 'Legacy IEDC UCEK',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${memberName} - Legacy IEDC UCEK`,
+        description: `Meet ${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
+        images: [imageUrl],
+      },
+    };
+  } catch (error) {
+    console.error('Error generating metadata:', error);
+    return {
+      title: 'Legacy IEDC UCEK Team',
+      description: 'Meet our team at Legacy IEDC UCEK',
+    };
+  }
+}
+
+function Page() {
+  return <TeamMemberClient />;
 }
 
 export default Page;

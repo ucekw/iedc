@@ -39,9 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="bg-black">
+      <body className={`${inter.className} bg-black min-h-screen`}>
+        {children}
         <GoogleAnalytics gaId="G-F5Y4P1CMWN" />
+      </body>
     </html>
   );
 }

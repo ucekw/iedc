@@ -1,9 +1,32 @@
 import Papa from "papaparse";
 
-export const TEAM_SHEET_ID = "11wb50a61GeHHSCq86HRAE9IXViXM3RIT--p42OZ2QhY";
+export const TEAM_SHEET_ID_24 = "11wb50a61GeHHSCq86HRAE9IXViXM3RIT--p42OZ2QhY";
+export const TEAM_SHEET_ID_25 = "1CokGnxTN_TqPyv24Cplsozpbvoom_RouKaz7P9bK4-4";
 export const EVENTS_SHEET_ID = "1GjKhDerIdLdzXw_epwXEwQo6BhniCQym-5s-sIOKiaQ";
-export const NEW_TEAM = "1CokGnxTN_TqPyv24Cplsozpbvoom_RouKaz7P9bK4-4";
 
+// Server-safe data fetching function
+export async function getDataServer(url: string): Promise<string[][]> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const csvText = await response.text();
+    
+    // Parse CSV text using PapaParse without download option
+    const results = Papa.parse<string[]>(csvText, {
+      skipEmptyLines: true,
+    });
+    
+    let d: string[][] = results.data;
+    d.shift(); // Remove header row
+    return d;
+  } catch (error) {
+    throw error;
+  }
+}
+
+// Client-side data fetching function (for browser environments)
 export function getData(url: string): Promise<string[][]> {
   return new Promise((resolve, reject) => {
     Papa.parse<string[]>(url, {
@@ -22,14 +45,12 @@ export function getData(url: string): Promise<string[][]> {
 }
 
 export function getMemberData(slug: string) {
-
-  console.log("Fetching member data for slug:", slug);
   const url =
     "https://docs.google.com/spreadsheets/d/" +
-    NEW_TEAM +
+    TEAM_SHEET_ID_25 +
     "/gviz/tq?tqx=out:csv&sheet=s1&tq=" + 
     encodeURIComponent(`select * where E = '${slug}'`);
-  return getData(url)
+  return getDataServer(url);
 }
 
 export function getImgLink(link: string) {
@@ -39,10 +60,18 @@ export function getImgLink(link: string) {
   );
 }
 
+export function getTeamData24() {
+  const url =
+    "https://docs.google.com/spreadsheets/d/" +
+    TEAM_SHEET_ID_24 +
+    "/gviz/tq?tqx=out:csv&sheet=s1";
+  return getData(url);
+}
+
 export function getTeamData() {
   const url =
     "https://docs.google.com/spreadsheets/d/" +
-    TEAM_SHEET_ID +
+    TEAM_SHEET_ID_25 +
     "/gviz/tq?tqx=out:csv&sheet=s1";
   return getData(url);
 }
@@ -96,9 +125,7 @@ export async function getPastEvents() {
       `select * where E < date '${formattedToday}' order by E desc`
     );
 
-  const eventsArray = await getData(url);
-
-  console.log(eventsArray);
+  const eventsArray = await getDataServer(url);
 
   const groupedEvents: YearEvents = eventsArray.reduce(
     (acc: YearEvents, [timestamp, imageUrl, name, description, date]) => {

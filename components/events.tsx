@@ -88,8 +88,6 @@ const Event = () => {
 
   useEffect(() => {
     getLatestEvents().then((data) => {
-      console.log(data);
-
       setData(data);
     });
   }, []);

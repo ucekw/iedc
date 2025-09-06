@@ -8,8 +8,6 @@ export async function GET(request: NextRequest) {
   const imageId = searchParams.get('id');
 
   try {
-   
-    
 
     let memberImage;
     
@@ -28,8 +26,9 @@ export async function GET(request: NextRequest) {
           
           // Process member image - make it circular and resize
           memberImage = await sharp(imageBuffer)
-            .resize(264, 264, { fit: 'cover', position: 'center' })
-            .png()
+            .resize(264, 264, { fit: 'cover', position: 'center', background: { r: 0, g: 0, b: 0, alpha: 1 } })
+            .flatten({ background: { r: 0, g: 0, b: 0 } })
+            .jpeg({ quality: 90 })
             .toBuffer();
         }
       } catch (error) {

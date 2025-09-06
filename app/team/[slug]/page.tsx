@@ -27,7 +27,7 @@ export async function generateMetadata({
 
     const memberName = data[1] || "Team Member";
     const memberRole = data[5] || "Legacy IEDC UCEK Team";
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = 'https://iedc.uck.ac.in';
     
     // Handle image URL with proper sizing for social media
     let ogImageUrl = `${baseUrl}/logo.svg`; // Default fallback
@@ -50,7 +50,7 @@ export async function generateMetadata({
       
       openGraph: {
         title: `${memberName} - Legacy IEDC UCEK`,
-        description: `${memberName}, ${memberRole} at Legacy IEDC UCEK.`,
+        description: `${memberRole} at Legacy IEDC UCEK.`,
         url: `${baseUrl}/team/${slug}${id ? `?id=${id}` : ''}`,
         siteName: 'Legacy IEDC UCEK',
         type: 'profile',

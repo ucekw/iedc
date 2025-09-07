@@ -24,7 +24,7 @@ function Page() {
           <h2 className="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
             Legacy - Innovation and Entrepreneurship Development Centre – UCEK
           </h2>
-          <blockquote className="mt-6 border-l-2 pl-6 italic">
+          <blockquote className="mt-6  pl-6 italic ">
             We are the change-makers of UCEK.
           </blockquote>
           <p className="leading-7 [&:not(:first-child)]:mt-6">
@@ -60,7 +60,7 @@ function Page() {
             we enable you to break the boundaries, to make, to sustain, and to
             leave a mark.
           </p>
-          <blockquote className="mt-6 border-l-2 pl-6 italic">
+          <blockquote className="mt-6  pl-6 italic">
             Legacy IEDC UCEK is built enforcing the three ideals – <b>CREATE</b>
             , <b>SUSTAIN</b>, &<b>THRIVE</b>.
           </blockquote>

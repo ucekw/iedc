@@ -78,7 +78,7 @@ function HeroSection() {
             </div>
           </div>
 
-          <h1 className="font-bold md:text-8xl text-5xl slogan ">
+          <h1 className="font-bold md:text-8xl text-5xl text-black slogan ">
             Create. <br />
             Sustian. <br />
             Thrive. <br />

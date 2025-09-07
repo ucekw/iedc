@@ -27,9 +27,9 @@ function Footer() {
               className={`prevent-select md:w-64 w-32 object-cover rounded-lg`}
             />
           </div>
-          <div className="flex items-start w-full justify-evenly md:gap-0 gap-7 md:pt-16 md:flex-row flex-col">
+          <div className="flex items-start w-full text-black justify-evenly md:gap-0 gap-7 md:pt-16 md:flex-row flex-col">
             <div className="flex flex-col  justify-center">
-              <h1 className="md:text-xl text-md font-semibold">Pages</h1>
+              <h1 className="md:text-xl text-md font-semibold ">Pages</h1>
               <Link href="/team" className="text-sm">
                 Team
               </Link>

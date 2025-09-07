@@ -68,28 +68,28 @@ function Navbar({ page }: { page: string }) {
       >
         <Link
           href="/"
-          className={`${page == "home" ? "text-white" : ""}`}
+          className={`${page == "home" ? "text-white" : "text-black"}`}
           onClick={() => setIsOpen(false)}
         >
           Home
         </Link>
         <Link
           href="/events"
-          className={`${page == "events" ? "text-white" : ""}`}
+          className={`${page == "events" ? "text-white" : "text-black"}`}
           onClick={() => setIsOpen(false)}
         >
           Events
         </Link>
         <Link
           href="/team"
-          className={`${page == "team" ? "text-white" : ""}`}
+          className={`${page == "team" ? "text-white" : "text-black"}`}
           onClick={() => setIsOpen(false)}
         >
           Team
         </Link>
         <Link
           href="/about"
-          className={`${page == "about" ? "text-white" : ""}`}
+          className={`${page == "about" ? "text-white" : "text-black"}`}
           onClick={() => setIsOpen(false)}
         >
           About Us

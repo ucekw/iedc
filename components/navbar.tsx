@@ -94,12 +94,14 @@ function Navbar({ page }: { page: string }) {
         >
           About Us
         </Link>
-        <button
+        <Link
+          href="/join"
+          target="_blank"
           className="px-5 py-2 bg-black text-white rounded-3xl font-[600]"
           onClick={() => setIsOpen(false)}
         >
           Join
-        </button>
+        </Link>
       </div>
     </div>
   );

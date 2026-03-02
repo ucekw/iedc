@@ -3,12 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600"],   // choose weight here
+  display: "swap",
+});
 
 export default function Page() {
   const [events, setEvents] = useState<any[]>([]);
   const [index, setIndex] = useState(0);
-
-  // 🔥 Fetch real events from DB
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -16,143 +20,90 @@ export default function Page() {
           cache: "no-store",
         });
         const data = await res.json();
-        if (Array.isArray(data)) {
-          setEvents(data);
-        }
+        if (Array.isArray(data)) setEvents(data);
       } catch (error) {
-        console.error("Failed to fetch events:", error);
+        console.error(error);
       }
     }
     fetchEvents();
   }, []);
 
-  // 🔥 Auto rotate only if events exist
   useEffect(() => {
     if (events.length === 0) return;
-
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % events.length);
     }, 4000);
-
     return () => clearInterval(timer);
   }, [events]);
 
   const columns = [
-    { images: [7, 8, 9], offset: "pt-4 md:pt-8" },
-    { images: [4, 5, 6], offset: "translate-y-10 md:translate-y-12 lg:translate-y-20" },
-    { images: [1, 2, 3], offset: "pt-4 md:pt-8" },
+    { images: [10, 11, 12, 13], offset: "pt-4 md:-mt-[22px]" },
+    { images: [5, 6, 7, 8, 9], offset: "md:-mt-[150px] -mt-[50px] translate-y-10 md:translate-y-12 lg:translate-y-20" },
+    { images: [1, 2, 3, 4], offset: "pt-4 md:-mt-[22px]" },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-[#f4b518] via-[#f4b518] to-[#f4b518]">
+    <div className="bg-gradient-to-br -mt-4 from-[#f4b518] via-[#f4b518] to-[#f4b518]">
+
       {/* HERO SECTION */}
       <main className="relative min-h-screen flex items-center overflow-hidden px-4 md:px-8 lg:px-20">
 
         <div className="w-full max-w-[1600px] mx-auto py-12 pb-32 lg:py-0 lg:pb-40">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
-            {/* LEFT SIDE - Text Content */}
+
+            {/* LEFT SIDE */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8 md:space-y-10 text-black z-10 order-1 lg:order-1"
+              transition={{ duration: 0.8 }}
+              className="space-y-8 md:-mt-[30px] text-black"
             >
-              <div className="space-y-4 md:mt-5 -mt-4 md:space-y-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="inline-block"
-                >
-                  <span className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase bg-black text-[#f4b518] px-5 md:px-6 py-2 rounded-full">
-                    Legacy IEDC
-                  </span>
-                </motion.div>
-                
-                <h1 className="text-[14vw] sm:text-[11vw] md:text-[9vw] lg:text-[6.5rem] xl:text-[8rem] font-black leading-[0.9] uppercase font-semibold tracking-tighter">
-                  <motion.span 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                    className="block"
-                  >
-                    Create.
-                  </motion.span>
-                  <motion.span 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                    className="block"
-                  >
-                    Sustain.
-                  </motion.span>
-                  <motion.span 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.6 }}
-                    className="block"
-                  >
-                    Thrive.
-                  </motion.span>
-                </h1>
-              </div>
+              <h1 className={`${montserrat.className} md:ml-[150px] text-[14vw] sm:text-[11vw] md:text-[9vw] lg:text-[6.5rem] xl:text-[5rem]  leading-[1] uppercase tracking-tighter`}>
+                <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+                  Create.
+                </motion.span><br></br>
+                <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+                  Sustain.
+                </motion.span><br></br>
+                <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
+                  Thrive.
+                </motion.span>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="text-base md:text-lg lg:text-xl text-black/80 font-semibold max-w-xl leading-relaxed"
-              >
+              <p className="text-base md:ml-[150px] md:text-lg lg:text-xl text-black/80 font-semibold max-w-xl">
                 Empowering the next generation of entrepreneurs to transform bold ideas into thriving realities.
-              </motion.p>
+              </p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="flex flex-wrap gap-4 md:gap-5 pt-2"
-              >
-                <Link 
-                  href="/join" 
-                  className="group relative bg-black text-[#f4b518] px-8 md:px-12 lg:px-14 py-3.5 md:py-4 lg:py-5 rounded-full font-bold text-sm md:text-base lg:text-lg overflow-hidden shadow-2xl shadow-black/30 transition-all hover:shadow-black/50"
+              <div className="md:ml-[150px] flex flex-wrap gap-4">
+                <Link
+                  href="/join"
+                  className="bg-black text-[#f4b518] px-8 py-4 rounded-full font-bold"
                 >
-                  <span className="relative z-10">Join Our Community</span>
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-black via-gray-900 to-black"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
-                  />
+                  Join Our Community
                 </Link>
-                
-                <Link 
-                  href="/events/previous" 
-                  className="group relative border-[3px] border-black text-black px-8 md:px-12 lg:px-14 py-3.5 md:py-4 lg:py-5 rounded-full font-bold text-sm md:text-base lg:text-lg overflow-hidden transition-all hover:scale-105"
+
+                <Link
+                  href="/events/previous"
+                  className="border-2 border-black px-8 py-4 rounded-full font-bold"
                 >
-                  <span className="relative z-10 group-hover:text-[#e6e5e2] transition-colors">Explore Events</span>
-                  <motion.div 
-                    className="absolute inset-0 bg-black"
-                    initial={{ scale: 0 }}
-                    whileHover={{ scale: 1 }}
-                    transition={{ duration: 0.4 }}
-                  />
+                  Explore Events
                 </Link>
-              </motion.div>
+              </div>
             </motion.div>
-            
-            {/* RIGHT SIDE - Image Grid */}
-            <div className="order-2 lg:order-2 grid grid-cols-3 gap-3 md:gap-4 lg:gap-6 items-start">
+
+            {/* RIGHT SIDE IMAGE GRID — FULLY RESPONSIVE */}
+            <div className="md:mt-[90px] w-full max-w-[40rem] mx-auto px-2 sm:px-0 order-2 lg:order-2 grid grid-cols-3 gap-1 sm:gap-2 md:gap-2 lg:gap-3 items-start">
               {columns.map((col, colIndex) => (
-                <div key={colIndex} className={`flex flex-col gap-3 md:gap-4 lg:gap-6 ${col.offset}`}>
+                <div key={colIndex} className={`flex flex-col gap-1 sm:gap-2 md:gap-2 lg:gap-3 ${col.offset}`}>
                   {col.images.map((num, imgIndex) => (
-                    <motion.div 
-                      key={num} 
-                      initial={{ opacity: 0, y: 40, scale: 0.9 }} 
-                      animate={{ opacity: 1, y: 0, scale: 1 }} 
-                      transition={{ 
-                        delay: (colIndex * 3 + imgIndex) * 0.08, 
-                        duration: 0.7, 
-                        ease: [0.25, 0.46, 0.45, 0.94]
+                    <motion.div
+                      key={num}
+                      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        delay: (colIndex * 3 + imgIndex) * 0.08,
+                        duration: 0.7,
+                        ease: [0.25, 0.46, 0.45, 0.94],
                       }}
                     >
                       <HeroImage src={`/img${num}.jpg`} />
@@ -161,9 +112,11 @@ export default function Page() {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </main>
+  
 
       {/* BLACK CONTENT SECTIONS */}
       <div className="bg-gradient-to-b from-black via-[#0a0a0a] to-black text-white rounded-t-[60px] md:rounded-t-[100px] relative z-30 shadow-[0_-30px_60px_rgba(0,0,0,0.5)] overflow-hidden">
@@ -276,9 +229,7 @@ export default function Page() {
                       whileHover={{ x: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <span className="text-[#f4b518]/40 font-black text-5xl md:text-6xl lg:text-8xl">
-                        0{idx + 1}
-                      </span>
+                      
                     </motion.div>
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white group-hover:text-[#f4b518] transition-colors duration-300">
                       {saga.title}
@@ -309,7 +260,6 @@ export default function Page() {
         </section>
 
         {/* --- CAROUSEL EVENT CARDS --- */}
-       {/* ===================== CAROUSEL EVENT CARDS ===================== */}
         <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-[#0a0a0a] to-black relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 opacity-5">
@@ -346,38 +296,7 @@ export default function Page() {
               </motion.div>
             ) : (
               <>
-                {/*
-                  HOW THE ANIMATION WORKS
-                  ══════════════════════════════════════════════════════════
-
-                  3 cards always rendered: left (pos 0), center (pos 1), right (pos 2).
-
-                  CENTER card → `position: relative`
-                    Sits in normal document flow. The wrapper grows to fit it
-                    exactly → no fixed height → no top/bottom clipping.
-
-                  SIDE cards → `position: absolute`
-                    Centered on the same point as center, then offset by x:
-                      left  = x "-115%"  (peek from left edge)
-                      right = x "115%"   (peek from right edge)
-                    Scaled to 0.78 + blur(5px) = depth/shadow peek effect.
-
-                  MOBILE:  overflow-hidden on wrapper clips side cards to a
-                           subtle blurred peek behind the center card.
-                  DESKTOP: overflow-visible reveals the full side cards.
-
-                  EXIT ANIMATION — why it was broken before:
-                  ──────────────────────────────────────────
-                  Old code used `hidden md:block` on side cards.
-                  `hidden` = display:none = element torn from DOM immediately.
-                  AnimatePresence needs the element mounted to animate it out.
-
-                  Fix: pointer-events-none keeps element mounted + animatable,
-                  just not clickable. Exit fires cleanly:
-                    opacity → 0, scale → 0.6, x slides further off-screen.
-                  ══════════════════════════════════════════════════════════
-                */}
-                <div className="relative flex justify-center items-center    md:overflow-visible">
+                <div className="relative flex justify-center items-center md:overflow-visible">
                   <AnimatePresence mode="popLayout">
                     {[
                       (index - 1 + events.length) % events.length,
@@ -419,8 +338,8 @@ export default function Page() {
                           className={[
                             "w-full max-w-[300px] md:max-w-[380px] lg:max-w-[420px]",
                             isCenter
-                              ? "relative"                      // drives wrapper height, no clip
-                              : "absolute pointer-events-none", // stays mounted for exit anim
+                              ? "relative"
+                              : "absolute pointer-events-none",
                           ].join(" ")}
                         >
                           <EventCard event={event} highlighted={isCenter} />
@@ -452,41 +371,41 @@ export default function Page() {
         </section>
 
         {/* Call to Action Footer Section */}
-<section className="py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-[#f4b518] to-[#e5a614] relative overflow-hidden">
-  <div className="absolute inset-0 opacity-10">
-    <div className="absolute top-0 right-0 w-96 h-96 bg-black rounded-full blur-3xl" />
-    <div className="absolute bottom-0 left-0 w-96 h-96 bg-black rounded-full blur-3xl" />
-  </div>
+        <section className="py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-[#f4b518] to-[#e5a614] relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-black rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-black rounded-full blur-3xl" />
+          </div>
 
-  <Reveal>
-    <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8 relative z-10">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-black tracking-tighter leading-tight">
-        Have a Groundbreaking <br /> Startup Idea?
-      </h2>
-      
-      <p className="text-base md:text-lg lg:text-xl text-black/80 font-semibold max-w-2xl mx-auto">
-        Don't let your vision stay on paper. Submit your idea today to receive expert mentorship, 
-        strategic guidance, and a clear path to market.
-      </p>
+          <Reveal>
+            <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8 relative z-10">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-black tracking-tighter leading-tight">
+                Have a Groundbreaking <br /> Startup Idea?
+              </h2>
+              
+              <p className="text-base md:text-lg lg:text-xl text-black/80 font-semibold max-w-2xl mx-auto">
+                Don't let your vision stay on paper. Submit your idea today to receive expert mentorship, 
+                strategic guidance, and a clear path to market.
+              </p>
 
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Link 
-          href="/submit-idea" // Make sure to update this route
-          className="inline-block bg-black text-[#f4b518] px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-2xl shadow-black/30 hover:shadow-black/50 transition-all uppercase tracking-tight"
-        >
-          Pitch Your Idea Now
-        </Link>
-      </motion.div>
-      
-      <p className="text-xs md:text-sm text-black/60 font-medium uppercase tracking-widest">
-        Direct Mentorship • Strategic Roadmap • Network Access
-      </p>
-    </div>
-  </Reveal>
-</section>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link 
+                  href="/submit-idea"
+                  className="inline-block bg-black text-[#f4b518] px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-2xl shadow-black/30 hover:shadow-black/50 transition-all uppercase tracking-tight"
+                >
+                  Pitch Your Idea Now
+                </Link>
+              </motion.div>
+              
+              <p className="text-xs md:text-sm text-black/60 font-medium uppercase tracking-widest">
+                Direct Mentorship • Strategic Roadmap • Network Access
+              </p>
+            </div>
+          </Reveal>
+        </section>
       </div>
     </div>
   );
@@ -515,7 +434,7 @@ function EventCard({ event, highlighted }: { event: any; highlighted: boolean })
         <img 
           src={event.image} 
           alt={event.title} 
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+          className="w-full h-full object-cover group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
         />
         
         {highlighted && (
@@ -570,7 +489,7 @@ function HeroImage({ src }: { src: string }) {
     <motion.div 
       whileHover={{ scale: 1.05, rotate: 2 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative w-full aspect-square rounded-xl md:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-2 border-black/10 group"
+      className="relative w-full aspect-[5/3] rounded-[10px] md:rounded-[10px] lg:rounded-[10px] overflow-hidden shadow-2xl border-2 border-black/10 group"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <img 

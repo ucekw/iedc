@@ -24,7 +24,7 @@ export default function Footer() {
                   width={80} 
                   height={40} 
                   className="h-auto w-16 md:w-20 object-contain"
-                  style={{ width: 'auto', height: 'auto' }}
+                  
                 />
                 <div className="h-10 w-[2px] bg-black/30" />
                 <Image 
@@ -33,7 +33,7 @@ export default function Footer() {
                   width={120} 
                   height={40} 
                   className="h-auto w-28 md:w-36 object-contain"
-                  style={{ width: 'auto', height: 'auto' }}
+                 
                 />
               </div>
               <p className="text-black/70 text-sm md:text-base leading-relaxed font-semibold">

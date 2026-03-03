@@ -56,7 +56,7 @@ export default function Page() {
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8 md:-mt-[30px] text-black"
+              className="space-y-8 md:-mt-[20px] text-black"
             >
               <h1 className={`${montserrat.className} md:ml-[150px] text-[14vw] sm:text-[11vw] md:text-[9vw] lg:text-[6.5rem] xl:text-[5rem]  leading-[1] uppercase tracking-tighter`}>
                 <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
@@ -223,7 +223,7 @@ export default function Page() {
             ].map((saga, idx) => (
               <div key={saga.id} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
                 <Reveal className={saga.reverse ? "lg:order-last" : ""}>
-                  <div className="space-y-6 group">
+                  <div className="space-y-6 -mt-16 group">
                     <motion.div 
                       className="inline-block"
                       whileHover={{ x: 10 }}

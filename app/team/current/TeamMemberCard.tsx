@@ -63,7 +63,7 @@ export default function TeamMemberCard({
           <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-transparent group-hover:border-[#f4b518] transition-all duration-500 rounded-br-2xl z-20 pointer-events-none" />
 
           {/* ── IMAGE ── */}
-          <div className="card-shimmer relative h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden flex-shrink-0">
+          <div className="card-shimmer bg-[#f4b518] relative h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden flex-shrink-0">
             <Image
               src={member.image}
               alt={member.name}

@@ -268,7 +268,7 @@ export default function MemberProfile({ member }: { member: any }) {
 
         .mp-headline {
           font-family: 'Syne', sans-serif;
-          font-size: clamp(32px, 5.5vw, 54px);
+          font-size: clamp(32px, 5vw, 50px);
           font-weight: 800;
           line-height: 1.0;
           letter-spacing: -1px;

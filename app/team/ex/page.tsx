@@ -13,6 +13,7 @@ export default async function ExMembersPage() {
 
   const serializedMembers = members.map((member: any) => ({
     _id: member._id.toString(),
+    slug: member.slug || "", 
     name: member.name || "",
     image: member.image || "",
     role: member.role || "",

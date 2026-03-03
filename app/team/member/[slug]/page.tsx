@@ -1,24 +1,21 @@
 import { connectDB } from "@/lib/mongodb";
 import Member from "@/models/Member";
 import MemberProfile from "@/components/MemberProfile";
-import mongoose from "mongoose";
 import { notFound } from "next/navigation";
-export const revalidate = 60;
+
+export const dynamic = "force-dynamic";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
   await connectDB();
 
-  const { id } = await params;
+  // ✅ REQUIRED in Next 16
+  const { slug } = await params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return notFound();
-  }
-
-  const member = await Member.findById(id).lean();
+  const member = await Member.findOne({ slug }).lean();
 
   if (!member) return notFound();
 

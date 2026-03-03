@@ -6,6 +6,7 @@ import { roleStructure } from "@/lib/roleStructure";
 
 interface Member {
   _id: string;
+  slug: string;   
   name: string;
   image: string;
   role: string;

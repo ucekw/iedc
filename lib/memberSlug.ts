@@ -1,42 +1,41 @@
-export function roleShort(role: string) {
-  const map: Record<string, string> = {
-    "Chief Executive Officer": "ceo",
-    "Chief Operating Officer": "coo",
-    "Chief Technology Officer": "cto",
-    "Chief Finance Officer": "cfo",
+import Member from "@/models/Member";
 
-    "Technology Officer": "to",
-    "Finance Officer": "fo",
+/* Smart Abbreviation Generator */
+function roleToBaseSlug(role: string) {
+  const lower = role.toLowerCase();
 
-    "Chief Branding and Marketing Officer": "cbmo",
-    "Branding and Marketing Officer": "bmo",
+  // Special well-known abbreviations
+  if (lower.includes("chief executive officer")) return "ceo";
+  if (lower.includes("chief technology officer")) return "cto";
+  if (lower.includes("chief finance officer")) return "cfo";
 
-    "Chief Quality and Operation Officer": "cqoo",
-    "Quality and Operation Officer": "qoo",
+  // Remove common words
+  const clean = lower
+    .replace(/chief/gi, "")
+    .replace(/officer/gi, "")
+    .trim();
 
-    "Chief Community Officer": "cco",
-    "Community Officer": "co",
+  const words = clean.split(/\s+/);
 
-    "Chief Creative and Innovation Officer": "ccio",
-    "Creative and Innovation Officer": "cio",
+  const abbreviation = words
+    .map((word) => word[0])
+    .join("");
 
-    "Chief Women Innovation Officer": "cwio",
-    "Women Innovation Officer": "wio",
+  return abbreviation || lower.replace(/\s+/g, "-");
+}
 
-    "Chief IPR and Research Officer": "cipro",
-    "IPR and Research Officer": "ipro",
+/* Generate unique slug with year */
+export async function generateUniqueSlug(role: string, year: string) {
+  const base = roleToBaseSlug(role);
+  const prefix = `${year}${base}`;
 
-    "Nodal Officer": "nodal",
-    "Project Coordinator": "pc",
-    "Mentor": "mentor",
-    "Women Lead": "wl",
-    "Executive curator": "ec",
+  const existing = await Member.find({
+    slug: new RegExp(`^${prefix}`)
+  }).lean();
 
-    "Member": "member",
-  };
+  if (existing.length === 0) {
+    return prefix;
+  }
 
-  return (
-    map[role] ||
-    role.toLowerCase().replace(/\s+/g, "-")
-  );
+  return `${prefix}${existing.length + 1}`;
 }

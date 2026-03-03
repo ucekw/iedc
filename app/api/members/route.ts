@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Member from "@/models/Member";
+import { generateUniqueSlug } from "@/lib/memberSlug";
 
 // GET all members
 export async function GET() {
@@ -18,9 +19,16 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const newMember = await Member.create(body);
+    // ✅ generate slug using role + year
+    const slug = await generateUniqueSlug(body.role, body.year);
+
+    const newMember = await Member.create({
+      ...body,
+      slug,
+    });
 
     return NextResponse.json(newMember, { status: 201 });
+
   } catch (error) {
     console.error(error);
     return NextResponse.json(

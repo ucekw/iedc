@@ -5,6 +5,7 @@ import Image from "next/image";
 interface TeamMemberCardProps {
   member: {
     _id: string;
+    slug: string;   
     name: string;
     image: string;
     role: string;
@@ -44,7 +45,7 @@ export default function TeamMemberCard({
       `}</style>
 
       <Link
-        href={`/team/member/${member._id}`}
+        href={`/team/member/${member.slug}`}
         className="block group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f4b518] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl"
         style={{
           animation: `fadeInUp 0.5s ease-out ${memberIndex * 0.05}s both`,

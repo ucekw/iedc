@@ -5,6 +5,8 @@ const MemberSchema = new mongoose.Schema(
     name: { type: String, required: true },
     image: { type: String, required: true },
 
+    slug: { type: String, unique: true }, // ✅ important
+
     role: { type: String, required: true },
     year: { type: String, required: true },
 
@@ -14,16 +16,8 @@ const MemberSchema = new mongoose.Schema(
       default: "current",
     },
 
-    priority: {
-      type: Number,
-      default: 0,
-    },
-
-    isMentor: {
-      type: Boolean,
-      default: false,
-    },
-
+    priority: { type: Number, default: 0 },
+    isMentor: { type: Boolean, default: false },
     bio: { type: String },
 
     socials: {

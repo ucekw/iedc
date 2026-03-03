@@ -81,9 +81,9 @@ export default function TeamMemberCard({
 
             {/* Role badge */}
             {member.role && (
-              <div className="absolute top-2.5 right-2.5 z-10">
+              <div className="absolute bottom-2.5 left-2.5 z-10">
                 <div className="bg-black/80 backdrop-blur-md px-2 py-1 rounded-lg border border-[#f4b518]/40 group-hover:border-[#f4b518]/80 transition-colors duration-300 max-w-[100px] sm:max-w-[120px]">
-                  <p className="text-[#f4b518] text-[8px] sm:text-[9px] font-black uppercase tracking-widest line-clamp-2 leading-tight text-center">
+                  <p className="text-[#f4b518] text-[8px] sm:text-[9px] font-black uppercase tracking-widest line-clamp-2 text-center">
                     {member.role}
                   </p>
                 </div>

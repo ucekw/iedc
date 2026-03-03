@@ -3,7 +3,7 @@ import Member from "@/models/Member";
 import MemberProfile from "@/components/MemberProfile";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Cache page for 1 hour
 
 export default async function Page({
   params,
@@ -12,10 +12,11 @@ export default async function Page({
 }) {
   await connectDB();
 
-  // ✅ REQUIRED in Next 16
   const { slug } = await params;
 
-  const member = await Member.findOne({ slug }).lean();
+  const member = await Member.findOne({ slug })
+    .select("name image role year bio slug")
+    .lean();
 
   if (!member) return notFound();
 

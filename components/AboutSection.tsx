@@ -49,20 +49,17 @@ export default function AboutSection() {
               <span className="relative inline-block">
                 <span className="absolute inset-0 bg-[#f4b518] blur-2xl opacity-40 rounded-full" />
                 <span className="relative text-[#f4b518] drop-shadow-[0_0_20px_rgba(244,181,24,0.6)]">
-                  Legacy
+                  Legacy IEDC
                 </span>
               </span>
             </h2>
 
             {/* Description */}
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
-              Legacy is the IEDC (Innovation and Entrepreneurship Development
-              Cell) of University College of Engineering Kariavattom — the
-              driving force behind student innovation at the heart of Kerala's
-              technology ecosystem.
+              IEDC-UCEK was set up by the Kerala Startup Mission in the University College of Engineering as part of establishing Innovation and Entrepreneurship Development Centres (IEDCs) all around Kerala in various colleges to promote the culture of startups and to instill the concept of entrepreneurship among students.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
-              Rooted in Trivandrum, Kerala, we have been nurturing the next
+              We have been nurturing the next
               generation of entrepreneurs, builders, and change-makers —
               turning bold ideas into real-world impact.
             </p>

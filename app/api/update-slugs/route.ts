@@ -2,20 +2,12 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Member from "@/models/Member";
 
-/* Smart Abbreviation */
 function roleToBaseSlug(role: string) {
-  const lower = role.toLowerCase();
-
-  if (lower.includes("chief executive officer")) return "ceo";
-  if (lower.includes("chief technology officer")) return "cto";
-  if (lower.includes("chief finance officer")) return "cfo";
-
-  const clean = lower
-    .replace(/chief/gi, "")
-    .replace(/officer/gi, "")
-    .trim();
-
-  const words = clean.split(/\s+/);
+  const words = role
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, "")
+    .split(/\s+/)
+    .filter(Boolean);
 
   return words.map((w) => w[0]).join("");
 }
@@ -41,11 +33,12 @@ export async function GET() {
     m.slug = slug;
   }
 
-  // Save AFTER generating all
   for (const m of members) {
     await m.save();
     console.log(`${m.name} → ${m.slug}`);
   }
 
-  return NextResponse.json({ message: "Slugs regenerated safely" });
+  return NextResponse.json({
+    message: "Slugs regenerated successfully",
+  });
 }

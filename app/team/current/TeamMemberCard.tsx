@@ -41,6 +41,7 @@ export default function TeamMemberCard({
           animation: shimmer 0.75s ease-out forwards;
           pointer-events: none;
           z-index: 5;
+          
         }
       `}</style>
 
@@ -55,7 +56,7 @@ export default function TeamMemberCard({
         {/* Ambient glow on hover */}
         <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#f4b518]/0 to-[#f4b518]/0 group-hover:from-[#f4b518]/25 group-hover:to-[#f4b518]/5 blur-lg transition-all duration-500 -z-10" />
 
-        <div className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-2xl overflow-hidden border border-zinc-800 group-hover:border-[#f4b518]/60 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#f4b518]/20 group-hover:-translate-y-2 h-full flex flex-col">
+        <div className="relative  bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-2xl overflow-hidden border border-zinc-800 group-hover:border-[#f4b518]/60 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#f4b518]/20 group-hover:-translate-y-2 h-full flex flex-col">
 
           {/* Corner accent — top-left */}
           <div className="absolute top-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-transparent group-hover:border-[#f4b518] transition-all duration-500 rounded-tl-2xl z-20 pointer-events-none" />

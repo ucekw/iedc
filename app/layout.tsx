@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black text-white flex flex-col min-h-screen`}>
         <Preloader />
         <Navbar />
-
+      
         {/* pt-24 ensures content doesn't hide under a fixed Navbar */}
         <main className="pt-24 flex-grow">
           {children}

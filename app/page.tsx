@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import AboutSection from "@/components/AboutSection";
 import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -406,6 +407,7 @@ export default function Page() {
             </div>
           </Reveal>
         </section>
+            <AboutSection />
       </div>
     </div>
   );

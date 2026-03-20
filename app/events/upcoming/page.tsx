@@ -22,7 +22,7 @@ export default async function UpcomingEventsPage() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 pt-18 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-12 xl:px-20">
+      <div className="relative mt-4 z-10 pt-18 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24 px-4 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-[1400px] mx-auto">
           {/* Page Header */}
           <div className="mb-12 md:mb-16 lg:mb-20 space-y-4 md:space-y-6">

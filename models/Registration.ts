@@ -27,6 +27,10 @@ const RegistrationSchema = new Schema(
       type: String,
       required: true,
     },
+    description: {          // ✅ NEW FIELD
+      type: String,
+      required: false,      // make true if mandatory
+    },
   },
   { timestamps: true }
 );

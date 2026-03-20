@@ -5,7 +5,13 @@ const MemberSchema = new mongoose.Schema(
     name: { type: String, required: true },
     image: { type: String, required: true },
 
-    slug: { type: String, unique: true }, // ✅ important
+    slug: { type: String, unique: true },
+
+    oldSlug: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
 
     role: { type: String, required: true },
     year: { type: String, required: true },

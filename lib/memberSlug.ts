@@ -1,30 +1,19 @@
 import Member from "@/models/Member";
 
-/* Smart Abbreviation Generator */
+/* Convert role → abbreviation */
 function roleToBaseSlug(role: string) {
-  const lower = role.toLowerCase();
+  const words = role
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, "")
+    .split(/\s+/)
+    .filter(Boolean);
 
-  // Special well-known abbreviations
-  if (lower.includes("chief executive officer")) return "ceo";
-  if (lower.includes("chief technology officer")) return "cto";
-  if (lower.includes("chief finance officer")) return "cfo";
+  const abbreviation = words.map((w) => w[0]).join("");
 
-  // Remove common words
-  const clean = lower
-    .replace(/chief/gi, "")
-    .replace(/officer/gi, "")
-    .trim();
-
-  const words = clean.split(/\s+/);
-
-  const abbreviation = words
-    .map((word) => word[0])
-    .join("");
-
-  return abbreviation || lower.replace(/\s+/g, "-");
+  return abbreviation;
 }
 
-/* Generate unique slug with year */
+/* Generate unique slug */
 export async function generateUniqueSlug(role: string, year: string) {
   const base = roleToBaseSlug(role);
   const prefix = `${year}${base}`;

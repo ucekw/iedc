@@ -14,6 +14,7 @@ export default function RegisterPage() {
     phone: "",
     department: "",
     year: "",
+    description: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,6 +107,15 @@ export default function RegisterPage() {
               <option value="3" className="bg-[#f4b518]">3rd Year</option>
               <option value="4" className="bg-[#f4b518]">4th Year</option>
             </select>
+            {/* DESCRIPTION */}
+<textarea
+  placeholder="Why are you interested / any notes..."
+  rows={4}
+  className="w-full p-4 rounded-2xl bg-white/30 border border-white/20 placeholder-black/50 text-black font-bold outline-none focus:bg-white/50 focus:border-white transition-all"
+  onChange={(e) =>
+    setForm({ ...form, description: e.target.value })
+  }
+/>
           </div>
 
           <button

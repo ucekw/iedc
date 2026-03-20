@@ -102,6 +102,7 @@ export default async function EventDetailsPage(
                       <th className="p-4 font-semibold">Contact Info</th>
                       <th className="p-4 font-semibold">Department</th>
                       <th className="p-4 font-semibold text-center">Year</th>
+                      <th className="p-4 font-semibold">Description</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -114,6 +115,9 @@ export default async function EventDetailsPage(
                         </td>
                         <td className="p-4 text-sm text-gray-300">{reg.department}</td>
                         <td className="p-4 text-sm text-center font-mono text-yellow-500">{reg.year}</td>
+                        <td className="p-4 text-sm text-gray-400 max-w-xs truncate">
+  {reg.description || "-"}
+</td>
                       </tr>
                     ))}
                   </tbody>
@@ -142,6 +146,14 @@ export default async function EventDetailsPage(
                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-tighter">Department</p>
                         <p className="text-gray-300">{reg.department}</p>
                       </div>
+                        <div>
+  <p className="text-gray-500 text-[10px] uppercase font-bold tracking-tighter">
+    Description
+  </p>
+  <p className="text-gray-300 text-sm">
+    {reg.description || "-"}
+  </p>
+</div>
                     </div>
                   </div>
                 ))}

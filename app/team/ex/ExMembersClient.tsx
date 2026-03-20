@@ -201,7 +201,7 @@ export default function ExMembersClient({ members }: ExMembersClientProps) {
                       </div>
 
                       {/* Members Grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 xl:ml-8 gap-2 sm:gap-3 md:gap-4">
                         {section.roles.map((role) =>
                           sectionMembers
                             .filter((m) => m.role === role)

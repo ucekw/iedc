@@ -92,7 +92,7 @@ export default function UpcomingEventCard({ event, index }: UpcomingEventCardPro
           <img
             src={event.image}
             alt={event.title}
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+            className="w-full h-full object-cover group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
           />
           
           {/* Countdown Badge */}

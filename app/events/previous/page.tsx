@@ -27,7 +27,7 @@ export default async function PreviousEventsPage() {
   const sortedYears = Object.keys(eventsByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-[#0a0a0a] to-black text-white relative overflow-hidden -mt-4">
+    <main className="min-h-screen bg-gradient-to-b from-black via-[#0a0a0a] to-black text-white relative overflow-hidden -mt-[3rem]">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-[#f4b518] rounded-full blur-[150px]" />

@@ -50,6 +50,7 @@ export async function GET(
     r.phone,
     r.department,
     r.year,
+    r.description || "",
     new Date(r.createdAt).toLocaleString(),
   ]);
 

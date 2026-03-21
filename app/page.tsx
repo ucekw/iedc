@@ -204,21 +204,21 @@ export default function Page() {
                 id: 1, 
                 title: "Our Inception", 
                 text: "University College of Engineering, Karivattom (UCEK) welcomed us as we graced the college by establishing the cell in 2020 and the investiture of the first executive committee. The incumbent exe-com proved their mettle, explored, and went on to leave a trail of legacy for the future members to tread upon.", 
-                img: "/saga1.jpg", 
+                img: "/saga1.jpeg", 
                 reverse: false 
               },
               { 
                 id: 2, 
                 title: "Our Journey", 
                 text: "We have displayed our worth on various fronts. We have successfully organized districtwide, statewide, and national events including hands-on workshops, hackathons, ideathons, talks, masterclasses, mentorship programmes, talent searches, and non-technical events. We take pride in being able to collaborate with other cells and communities of the college to have come so far and to keep going.", 
-                img: "/saga2.jpg", 
+                img: "/saga2.jpeg", 
                 reverse: true 
               },
               { 
                 id: 3, 
                 title: "The Legacy Continues", 
                 text: "The legacy will be preserved by our lineage. Legacy-IEDC-UCEK will revolutionize the startup ecosystem globally starting with Kerala. We will strive to identify, grow and produce entrepreneurs who will shape the world.", 
-                img: "/saga3.jpg", 
+                img: "/saga3.jpeg", 
                 reverse: false 
               }
             ].map((saga, idx) => (

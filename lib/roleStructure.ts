@@ -15,6 +15,8 @@ export const roleStructure = [
     heading: "Executive",
     roles: [
       "Chief Executive Officer",
+      "Chief Executive Officer (Vision & Planning)",
+      "Chief Executive Officer (Operations & Execution)",
       "Women Lead",
     ],
   },

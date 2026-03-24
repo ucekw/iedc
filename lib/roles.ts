@@ -3,6 +3,8 @@ export const ROLES = [
   "Project Coordinator",
   "Mentor",
   "Chief Executive Officer",
+  "Chief Executive Officer (Vision & Planning)",
+  "Chief Executive Officer (Operations & Execution)",
   "Women Lead",
 
   "Chief Quality and Operation Officer",

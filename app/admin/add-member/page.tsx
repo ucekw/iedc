@@ -20,7 +20,7 @@ export default function AddMemberPage() {
 
   const roles = [
     "Nodal Officer", "Project Coordinator", "Mentor",
-    "Chief Executive Officer", "Women Lead",
+    "Chief Executive Officer","Chief Executive Officer (Vision & Planning)","Chief Executive Officer (Operations & Execution)", "Women Lead",
     "Chief Quality And Operation Officer", "Quality And Operation Officer",
     "Chief Technology Officer", "Technology Officer",
     "Chief Branding And Marketing Officer", "Branding And Marketing Officer",

@@ -34,6 +34,8 @@ export default function EditMemberPage() {
     "Project Coordinator",
     "Mentor",
     "Chief Executive Officer",
+    "Chief Executive Officer (Vision & Planning)",
+    "Chief Executive Officer (Operations & Execution)",
     "Women Lead",
     "Chief Quality And Operation Officer",
     "Quality And Operation Officer",
